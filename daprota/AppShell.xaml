@@ -8,8 +8,7 @@
     Title="daprota">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:Pages.CoursesPage}"
+        Route="Pages.CoursePage" />
 
 </Shell>

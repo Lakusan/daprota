@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ArrayOfM_UserProgress xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<M_UserProgress>
+		<CurrentCourseId>3</CurrentCourseId>
+		<CurrentLessonId>1</CurrentLessonId >
+		<CurrentCourseProgress>100</CurrentCourseProgress>
+		<CurrentLessonProgress>50</CurrentLessonProgress>
+		<LessonsCompleted>
+			<LessonId>1</LessonId>
+			<LessonId>2</LessonId>
+		</LessonsCompleted>
+	</M_UserProgress>
+</ArrayOfM_UserProgress>

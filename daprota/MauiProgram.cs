@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using daprota.Pages;
+using daprota.Services;
+using daprota.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace daprota
 {
@@ -18,6 +21,14 @@ namespace daprota
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            // Pages
+            builder.Services.AddSingleton<CoursesPage>();
+            builder.Services.AddTransient<CourseDetailsPage>();
+            // ViewModels
+            builder.Services.AddSingleton<VM_Courses>();
+            builder.Services.AddTransient<VM_CourseDetails>();
+            // Services
+            builder.Services.AddSingleton<Storage>();
 
             return builder.Build();
         }
