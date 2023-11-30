@@ -1,6 +1,6 @@
 ﻿namespace daprota.Models
 {
-    class M_UserProgess
+    public class M_UserProgess
     {
         public required int CurrentCourseId { get; set; }
         public required int CurrentLessonId{ get; set; }

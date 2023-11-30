@@ -3,12 +3,16 @@
     x:Class="daprota.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:daprota"
+    xmlns:local="clr-namespace:daprota.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="daprota">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:Pages.CoursesPage}"
+        ContentTemplate="{DataTemplate local:CoursesPage}"
         Route="Pages.CoursePage" />
+
+    <ShellContent
+    ContentTemplate="{DataTemplate local:CourseDetailsPage}"
+    Route="Pages.CourseDetailsPage" />
 
 </Shell>

@@ -58,7 +58,6 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Raw\courses.xml" />
-	  <None Remove="Resources\Raw\course_.xml" />
 	  <None Remove="Resources\Raw\users.xml" />
 	  <None Remove="Resources\Raw\user_progress.xml" />
 	</ItemGroup>

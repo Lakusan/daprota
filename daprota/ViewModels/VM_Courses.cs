@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using daprota.Models;
 using daprota.Pages;
 using daprota.Services;
+using System.Linq;
 
 namespace daprota.ViewModels
 {
@@ -49,7 +50,25 @@ namespace daprota.ViewModels
         [RelayCommand]
         async Task Tap(int id)
         {
+            // Send Dict of filtered Courses, if not filtered use _courses
             await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}?Id={id}");
         }
+
+        public List<M_Course> GetFilteredItems(string title)
+        {
+            return Courses.Where(course => course.Title.Contains(title)).ToList();
+        }
+
+        //[RelayCommand]
+        //public  Task filterCourses(string filter)
+        //{
+        //    // filter Courses on user input 
+        //    // restore if null or out of focus
+        //    M_Course newItems = new();
+        //    await newItems = Courses.Where(Course=> Course.Title.Contains(filter)).ToList();
+        //    //List<int> listOfCourseId
+
+        //}
+
     }
 }

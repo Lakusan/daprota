@@ -12,7 +12,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <Label Text="{Binding Id}"></Label>
+        <Label Text="{Binding Id, StringFormat='Course id: {0:F0}'}" FontSize="40" HorizontalOptions="Center"></Label>
         <Button Text="Back"
                 Command="{Binding GoBackCommand}">
         </Button>

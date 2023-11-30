@@ -4,7 +4,7 @@
              xmlns:Model="clr-namespace:daprota.Models"
              xmlns:ViewModel="clr-namespace:daprota.ViewModels"
              x:Class="daprota.Pages.CoursesPage"
-             Title="CoursesPage">
+             x:DataType="ViewModel:VM_Courses">
     <!--Info Section-->
     <Grid RowDefinitions=".05*,.3*,.2*,.4*">
         <Grid Grid.Row="0">
@@ -15,22 +15,23 @@
                     VerticalOptions="Center" 
                     HorizontalOptions="Center"
                     TextColor="White"
-                    FontSize="Large">
+                    FontSize="15">
                 </Label>
                 <Label 
                     Grid.Column="1"
-                    Text="COURSENAME"
+                    Text="Courses"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     TextColor="White"
-                    FontSize="Header">
+                    FontSize="20">
                 </Label>
                 <Label 
                     Grid.Column="2"
-                    Text="Burgermenu"
+                    x:Name="l_placeholder"
+                    Text="Placeholder"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    FontSize="Large">
+                    FontSize="10">
                 </Label>
             </Grid>
         </Grid>
@@ -45,12 +46,17 @@
             </Frame>
         </StackLayout>-->
         <!--All Courses-->
-        <!--<SearchBar 
+        <SearchBar 
+            x:Name= "SB_FilterCourses"
             Grid.Row="2"
-            Text="Type to filter Courses below"
             TextColor="gray"
-            Placeholder="Filter courses">
-        </SearchBar>-->
+            Placeholder="Type to Filter courses below"
+            HeightRequest="45"
+            WidthRequest="250"
+            VerticalOptions="EndAndExpand"
+            CancelButtonColor="red"
+            TextChanged="SB_FilterCourses_TextChanged">
+        </SearchBar>
         <CarouselView 
                       Grid.Row="3" 
                       x:Name="CarV_Courses"
@@ -90,7 +96,7 @@
                                   Grid.Row="3"
                                   FontSize="Medium"
                                   HorizontalOptions="Center"
-                                    Text="{Binding Description_short}">
+                                  Text="{Binding Description_short}">
                                 </Label>
                             </Grid>
                         </Border>
