@@ -56,19 +56,7 @@ namespace daprota.ViewModels
 
         public List<M_Course> GetFilteredItems(string title)
         {
-            return Courses.Where(course => course.Title.Contains(title)).ToList();
+            return Courses.Where(course => course.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
         }
-
-        //[RelayCommand]
-        //public  Task filterCourses(string filter)
-        //{
-        //    // filter Courses on user input 
-        //    // restore if null or out of focus
-        //    M_Course newItems = new();
-        //    await newItems = Courses.Where(Course=> Course.Title.Contains(filter)).ToList();
-        //    //List<int> listOfCourseId
-
-        //}
-
     }
 }
