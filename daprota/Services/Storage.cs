@@ -5,6 +5,43 @@ namespace daprota.Services
 {
     public class Storage
     {
+        public string GetUserDataFromPrefs()
+        {
+            string s = Preferences.Default.Get<string>("Settings", null);
+            return s;
+        }
+
+        public void SetUserDataToPrefs<T>(T obj)
+        {
+            // Convert Obj to JSON string
+            Preferences.Default.Set<string>("Settings", ConvertObjToJSONString<T>(obj));
+        }
+
+        public T? ConvertJSONStringToObj<T>(string jsonString){
+            try
+            {
+                T? obj = JsonSerializer.Deserialize<T>(jsonString);
+                return obj;
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Error reading JSON string: " + ex.Message);
+                return default;
+            }
+        }
+
+        public string ConvertObjToJSONString<T>(T obj)
+        {
+            try
+            {
+                return JsonSerializer.Serialize(obj);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Converting obj to JSON string: " + ex.Message);
+                return default;
+            }
+        }
+
         public T? ReadJsonFile<T>(string filePath)
         {
             try

@@ -2,10 +2,11 @@
 <ArrayOfM_Course xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<M_Course>
 		<Id>0</Id>
-		<Title>First Course</Title>
+		<Title>Fundamentals DSGVO</Title>
 		<Description_long>Long M_Cours Description</Description_long>
 		<Description_short>Short M_Cours Description</Description_short>
-		<Image>dotnet_bot.png</Image>
+		<Image>thinking.png</Image>
+		<Category>Beginner</Category>
 	</M_Course>
 	<M_Course>
 		<Id>1</Id>
@@ -13,6 +14,7 @@
 		<Description_long>Long M_Cours Description</Description_long>
 		<Description_short>Short M_Cours Description</Description_short>
 		<Image>dotnet_bot.png</Image>
+		<Category>Advanced</Category>
 	</M_Course>
 	<M_Course>
 		<Id>2</Id>
@@ -20,6 +22,7 @@
 		<Description_long>Long M_Cours Description</Description_long>
 		<Description_short>Short M_Cours Description</Description_short>
 		<Image>dotnet_bot.png</Image>
+		<Category>Advanced</Category>
 	</M_Course>
 	<M_Course>
 		<Id>3</Id>
@@ -27,6 +30,7 @@
 		<Description_long>Long M_Cours Description</Description_long>
 		<Description_short>Short M_Cours Description</Description_short>
 		<Image>dotnet_bot.png</Image>
+		<Category>Professional</Category>
 	</M_Course>
 	<M_Course>
 		<Id>4</Id>
@@ -34,5 +38,6 @@
 		<Description_long>Long M_Cours Description</Description_long>
 		<Description_short>Short M_Cours Description</Description_short>
 		<Image>dotnet_bot.png</Image>
+		<Category>Quiz</Category>
 	</M_Course>
 </ArrayOfM_Course>

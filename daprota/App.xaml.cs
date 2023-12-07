@@ -1,4 +1,5 @@
 ﻿using daprota.Models;
+using daprota.Services;
 using System.Text.Json;
 
 #if WINDOWS
@@ -12,32 +13,47 @@ namespace daprota
 {
     public partial class App : Application
     {
-        public static M_User? _userData;
-        public static M_UserProgess? _userProgess;
+        public static M_User _userData;
+
+        public static M_User _defaulUserProfile;
+        
+        // CONSTANTS
+        public static int MAX_LESSONS_PER_COURSE = 4;
 
         public App()
         {
             InitializeComponent();
+            // Set default User Profile
+            //-> TODO: Change to XML and load on start
+            _defaulUserProfile = new M_User()
+            {
+                UserId = 0,
+                Username = "Username",
+                LastActivityDate = DateOnly.FromDateTime(DateTime.Now),
+                FirstStart = true,
+                CourseProgression = new List<M_UserCorseProgess>
+                    {
+                        new M_UserCorseProgess
+                        {
+                            CourseId = 0,
+                            CurrentLessonId = 0
+                        }
+                    }
+            };
 
-
-            // Get User Data 
-            // TODO: get user data from xml.
+            // Get User Data from Prefs on app start
             string tmp = Preferences.Default.Get<string>("Settings", null);
+            // if key is !null in prefs, load User Profile in M_User
             if (tmp != null)
             {
-                // assume that in tmp is JSON String
                 _userData = JsonSerializer.Deserialize<M_User>(tmp);
             }
             else
             {
-                // otherwise use defaults
-                _userData = new M_User()
-                {
-                    UserId = 0,
-                    Username = "Default",
-                    LastActivityDate = DateOnly.FromDateTime(DateTime.Now),
-                    CoursesCompleted = new List<int> { 0, 1, 2 }
-                };
+                // if key is null
+                // create default User Profile as M_User for runtime
+                _userData = _defaulUserProfile;
+                // Set default user profile in Prefs with key "Settings"
                 var jsonString = JsonSerializer.Serialize(_userData);
                 Preferences.Default.Set("Settings", jsonString);
             }
@@ -54,6 +70,7 @@ namespace daprota
                 appWindow.Resize(new SizeInt32(450, 850));
 #endif  
             });
+            // initialized courses
             MainPage = new AppShell();
         }
     }

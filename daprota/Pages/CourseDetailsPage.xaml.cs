@@ -9,5 +9,4 @@ public partial class CourseDetailsPage : ContentPage
 		InitializeComponent();
 		BindingContext = vm;
 	}
-
 }

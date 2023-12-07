@@ -2,12 +2,12 @@
 <ArrayOfM_User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<M_User>
 		<UserId>1</UserId>
-		<Username>Karl</Username>
+		<Username>Username</Username>
 		<LastActivityDate>2023-11-23T08:00:00Z</LastActivityDate>
 		<FirstStart>true</FirstStart>
-		<CoursesProgression>
-			<CourseId>1</CourseId>
-			<CurrentLessonId>1</CurrentLessonId>
-		</CoursesProgression>
+		<CourseProgression>
+			<CourseId>0</CourseId>
+			<CurrentLessonId>0</CurrentLessonId>
+		</CourseProgression>
 	</M_User>
 </ArrayOfM_User>

@@ -4,15 +4,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:daprota.Pages"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="daprota">
 
     <ShellContent
         ContentTemplate="{DataTemplate local:CoursesPage}"
-        Route="Pages.CoursePage" />
+        Route="Pages.CoursePage"
+        Title="Courses"/>
 
     <ShellContent
-    ContentTemplate="{DataTemplate local:CourseDetailsPage}"
-    Route="Pages.CourseDetailsPage" />
+        ContentTemplate="{DataTemplate local:CourseDetailsPage}"
+        Route="Pages.CourseDetailsPage"
+        Title="Course Details"/>
+    
+    <ShellContent
+        ContentTemplate="{DataTemplate local:QuestionsPage}"
+        Route="Pages.QuestionsPage"
+        Title="Questions(Test)"/>
+
+    <ShellContent
+     ContentTemplate="{DataTemplate local:ChangeUsernamePage}"
+     Route="Pages.ChangeUsernamePage"
+     Title="Change Username Page"/>
 
 </Shell>

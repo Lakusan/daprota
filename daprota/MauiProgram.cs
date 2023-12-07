@@ -24,9 +24,13 @@ namespace daprota
             // Pages
             builder.Services.AddSingleton<CoursesPage>();
             builder.Services.AddTransient<CourseDetailsPage>();
+            builder.Services.AddTransient<QuestionsPage>();
+            builder.Services.AddTransient<ChangeUsernamePage>();
             // ViewModels
             builder.Services.AddSingleton<VM_Courses>();
             builder.Services.AddTransient<VM_CourseDetails>();
+            builder.Services.AddTransient<VM_Questions>();
+            builder.Services.AddTransient<VM_Settings>();
             // Services
             builder.Services.AddSingleton<Storage>();
 

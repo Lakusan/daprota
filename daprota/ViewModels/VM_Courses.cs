@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using daprota.Models;
 using daprota.Pages;
 using daprota.Services;
-using System.Linq;
 
 namespace daprota.ViewModels
 {
@@ -11,36 +10,17 @@ namespace daprota.ViewModels
     {
         public List<M_Course> Courses { get; set; }
         private Storage _storage;
+        public M_User currentUser { get; set; }
 
         public VM_Courses(Storage s)
         {
             _storage = s;
-            //Courses = new(){
-            //    new M_Course
-            //    {
-            //        Id = 0,
-            //        Title = "First Course",
-            //        Description_long = "long course description",
-            //        Description_short = "short course description",
-            //        Image = "dotnet_bot.png"
-            //    },
-            //    new M_Course
-            //    {
-            //        Id = 1,
-            //        Title = "Second Course",
-            //        Description_long = "long course description",
-            //        Description_short = "short course description",
-            //        Image = "dotnet_bot.png"
-            //    },
-            //    new M_Course
-            //    {
-            //        Id = 2,
-            //        Title = "Third Course",
-            //        Description_long = "long course description",
-            //        Description_short = "short course description",
-            //        Image = "dotnet_bot.png"
-            //    }
-            //};
+            currentUser = App._userData;
+        }
+
+        public M_User GetCurrentUserProfile()
+        {
+            return App._userData;
         }
 
         public async Task LoadDataAsync()
@@ -58,5 +38,26 @@ namespace daprota.ViewModels
         {
             return Courses.Where(course => course.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
         }
+
+        // create Progress of Current course
+        //
+        // - 4 lessons max, 1 lesson 25% -> maxLesson/LessonsCompleted Count APP.MAX_LESSONS_PER_COURSE
+        private float GetCurrentCourseProgress()
+        {
+            float progress = 0f;
+            return progress;
+        }
+
+        private int GetCurrentCourseId()
+        {
+            return Courses.Count;
+        }
+
+        // Get Progress Data from User profile to tell the view whats goin on
+
+        // view must have prograss bars on each course card. 
+
+        // how to define the main course or my course List -> Last one is active. Then only data to done lesson. Next lesson is active one. 1 course => 4 lessons
+
     }
 }

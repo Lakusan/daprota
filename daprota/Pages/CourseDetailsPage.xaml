@@ -16,5 +16,11 @@
         <Button Text="Back"
                 Command="{Binding GoBackCommand}">
         </Button>
+        <ProgressBar 
+            Margin="20" 
+            WidthRequest="250"
+            Progress=".5"
+            ProgressColor="red">
+        </ProgressBar>
     </VerticalStackLayout>
 </ContentPage>
