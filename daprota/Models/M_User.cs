@@ -7,7 +7,8 @@ namespace daprota.Models
         public string Username { get; set; }
         public DateOnly LastActivityDate { get; set; }
         public bool FirstStart { get; set; }
-        public List<M_UserCorseProgess> CourseProgression { get; set; }
+        public int ActiveCourseId { get; set; }
+        public int ActiveLessionId { get; set; }
     }
 }
 

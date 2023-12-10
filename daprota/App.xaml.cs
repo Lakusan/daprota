@@ -31,14 +31,8 @@ namespace daprota
                 Username = "Username",
                 LastActivityDate = DateOnly.FromDateTime(DateTime.Now),
                 FirstStart = true,
-                CourseProgression = new List<M_UserCorseProgess>
-                    {
-                        new M_UserCorseProgess
-                        {
-                            CourseId = 0,
-                            CurrentLessonId = 0
-                        }
-                    }
+                ActiveCourseId = 0,
+                ActiveLessionId = 0,
             };
 
             // Get User Data from Prefs on app start

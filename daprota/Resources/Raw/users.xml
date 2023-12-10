@@ -5,9 +5,7 @@
 		<Username>Karl</Username>
 		<LastActivityDate>2023-11-23T08:00:00Z</LastActivityDate>
 		<FirstStart>true</FirstStart>
-		<CoursesProgression>
-			<CourseId>1</CourseId>
-			<CurrentLessonId>1</CurrentLessonId>
-		</CoursesProgression>
+		<ActiveCourseId>0</ActiveCourseId>
+		<ActiveLessonId>0</ActiveLessonId>
 	</M_User>
 </ArrayOfM_User>

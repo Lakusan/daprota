@@ -1,6 +1,7 @@
 using daprota.ViewModels;
 using daprota.Models;
 using Microsoft.Maui.Handlers;
+using Microsoft.VisualBasic;
 
 namespace daprota.Pages;
 
@@ -12,12 +13,15 @@ public partial class CoursesPage : ContentPage
     public List<M_Course> Courses { get; set; }
     private VM_Courses _vm;
     public M_User currentUser { get; set; }
+    public M_CurrentCourse currentCourse { get; set; }
+
     public CoursesPage(VM_Courses vm)
     {
         InitializeComponent();
         BindingContext = vm;
         _vm = vm;
-        changeSearchBarIconColor();
+        //changeSearchBarIconColor();
+        // maybe obsolet
         currentUser = _vm.GetCurrentUserProfile();
     }
 
@@ -30,9 +34,13 @@ public partial class CoursesPage : ContentPage
 
         //-> TODO: Load Course Data in App.xaml.cs once from xml ; runtime -> Obj
         await _vm.LoadDataAsync();
+        // get current course data 
+        currentCourse = _vm.CurrentCourse;
+        _vm.SetCourseProgressionFloat(currentCourse.CurrentLessonId);
+        _vm.SetCourseProgressionPercentage(currentCourse.CurrentLessonId);
         // set courses to carousel
         CarV_Courses.ItemsSource = _vm.Courses;
-
+        
         //-> TODO: Get Course Progress to be displayed on course cards
 
         // example use app Dictionary I/O
@@ -51,12 +59,6 @@ public partial class CoursesPage : ContentPage
         }
     }
 
-    //private void e_username_Unfocused(object sender, FocusEventArgs e)
-    //{
-    //    string _oldUsername = App._userData.Username;
-
-    //}
-
     // Change Search bar Icon to white on Android
     private void changeSearchBarIconColor()
     {
@@ -72,5 +74,10 @@ public partial class CoursesPage : ContentPage
             }
 #endif
         });
+    }
+
+    private async void TapGestureRecognizer_MyCopurseTapped(object sender, TappedEventArgs e)
+    {
+        await _vm.MyCourseTapped();
     }
 }

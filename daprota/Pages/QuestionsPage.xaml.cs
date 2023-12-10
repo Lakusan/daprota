@@ -11,26 +11,26 @@ public partial class QuestionsPage : ContentPage
 
     private void btn_generateQuestion_Clicked(object sender, EventArgs e)
     {
-        M_Question question = new M_Question()
-        {
-            qText = "Some Explainaton to the question"
-        };
-        question.qAnswers = new List<M_Answer>
-        {
-            new M_Answer() {Text="Answertext1", isCorrect=true },
-            new M_Answer() {Text="Answertext2", isCorrect=false },
-            new M_Answer() {Text="Answertext3", isCorrect=false },
-            new M_Answer() {Text="Answertext4", isCorrect=false }
-        };
+        //M_Question question = new M_Question()
+        //{
+        //    qText = "Some Explainaton to the question"
+        //};
+        //question.qAnswers = new List<M_Answer>
+        //{
+        //    new M_Answer() {Text="Answertext1", isCorrect=true },
+        //    new M_Answer() {Text="Answertext2", isCorrect=false },
+        //    new M_Answer() {Text="Answertext3", isCorrect=false },
+        //    new M_Answer() {Text="Answertext4", isCorrect=false }
+        //};
         
-        question.qAnswers = question.qAnswers.OrderBy  (a => Guid.NewGuid()).ToList();
-        VSL_Question.BindingContext = question;
+        //question.qAnswers = question.qAnswers.OrderBy  (a => Guid.NewGuid()).ToList();
+        //VSL_Question.BindingContext = question;
     }
 
     private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var answer = (sender as CollectionView).SelectedItem as M_Answer;
-        if (answer.isCorrect)
+        if (answer.IsCorrect)
         {
             await DisplayAlert("Correct Answer", "Good Job - Explaination", "Proceed");
         }

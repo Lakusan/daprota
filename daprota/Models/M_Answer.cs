@@ -2,7 +2,7 @@
 {
     public class M_Answer
     {
-        public required string Text { get; set; }
-        public required bool isCorrect { get; set; }
+        public required string AnswerText { get; set; }
+        public required bool IsCorrect { get; set; }
     }
 }

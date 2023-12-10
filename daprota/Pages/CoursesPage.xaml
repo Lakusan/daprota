@@ -9,7 +9,7 @@
              Shell.FlyoutBehavior="Flyout"
              Title=""
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
-    <Grid RowDefinitions=".05*,.2*,.4*,.05*,.2*" RowSpacing="10" Padding="5">
+    <Grid RowDefinitions=".05*,.2*,.4*,.05*,.2*" RowSpacing="20">
     <!--region Info Bar-->
         <Border
             BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
@@ -22,7 +22,7 @@
                     x:Name="l_username"
                     Grid.Column="0"
                     Padding="10"
-                    Text="{Binding currentUser.Username}"
+                    Text="CurrentUSerNam,e"
                     TextColor="{AppThemeBinding Light=White , Dark=White}"
                     FontSize="15"
                     VerticalTextAlignment="Center"
@@ -47,14 +47,22 @@
                 </Label>
             </Grid>
         </Border>
-<!--endregion Info Bar-->
+        <!--endregion Info Bar-->
         <!--region Current Course View-->
-        <Border  Grid.Row="1"
+        <Border
+            Margin="5"
+            Grid.Row="1"
             HorizontalOptions="Fill"
             VerticalOptions="Fill"
             StrokeShape="RoundRectangle 8,8,8,8"
             Background="{AppThemeBinding Light=#3498DB, Dark=#2980B9}"
             StrokeThickness="0">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="TapGestureRecognizer_MyCopurseTapped"
+                    NumberOfTapsRequired="1">
+                </TapGestureRecognizer>
+            </Border.GestureRecognizers>
             <Grid 
                 Margin="10"
                 RowDefinitions=".2*,.6*,.2*"
@@ -62,63 +70,107 @@
                 <Label 
                     Grid.Row="0"            
                     Grid.Column="0"
-                    Text="Progress"
-                    HorizontalOptions="Center"
-                    FontSize="20"
+                    Text="{Binding CurrentCourse.CurrentCourseTitle}"
+                    HorizontalOptions="Start"
+                    FontSize="15"
                     TextColor="White">
                 </Label>
+                <Label 
+                    Grid.Row="1"
+                    FontSize="10" 
+                    TextColor="White" 
+                    VerticalOptions="Start" 
+                    Margin="5,10,0,0" Text="Progress"></Label>
                 <Border 
                     Grid.Row="1" 
                     Grid.Column="0" 
                     StrokeShape="RoundRectangle 8,8,8,8"
                     WidthRequest="180"
                     HeightRequest="20">
-                    <ProgressBar 
-                        Progress=".5" 
-                        ProgressColor="{AppThemeBinding Light=#9B59B6 , Dark=White}"
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand"
-                        HeightRequest="3"
-                        ScaleY="10">
-                    </ProgressBar>
+                        <ProgressBar 
+                            Grid.Row="2"
+                            Progress="{Binding CurrentCourseProgressBar}" 
+                            ProgressColor="{AppThemeBinding Light=#9B59B6 , Dark=White}"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            HeightRequest="3"
+                            ScaleY="10">
+                        </ProgressBar>
                 </Border>
-                
-                <Label Grid.Row="3" Grid.Column="0" Text="50%" FontSize="20" TextColor="White" HorizontalOptions="Center" VerticalOptions="Start"></Label>
-                <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Source="dotnet_bot.png"></Image>
-                <Label Grid.Row="3" Grid.Column="3" Text="Test" FontSize="20" TextColor="White" HorizontalOptions="Center" VerticalOptions="Start"></Label>
+                <Label 
+                    Grid.Row="1" 
+                    FontSize="10" 
+                    TextColor="White"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,10"
+                    Text="{Binding CurrentCourseProgressText, StringFormat='{0}%'}">
+                </Label>
+                <Label 
+                    Grid.Row="3" 
+                    Grid.Column="0" 
+                    Text="{Binding CurrentCourseLessonProgress, StringFormat='{0}/4 Lessons'}" 
+                    FontSize="20" 
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start">
+                </Label>
+                <Image 
+                    Grid.Row="0"
+                    Grid.RowSpan="2" 
+                    Grid.Column="1" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Source="{Binding CurrentCourse.Image}">
+                </Image>
+                <Label 
+                    Grid.Row="3" 
+                    Grid.Column="3"
+                    Text="Level: Intro"
+                    FontSize="20" 
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start">
+                </Label>
             </Grid>
         </Border>
         <!--endregion Current Course View-->
         <!--region Infobox-->
         <Border 
             Grid.Row="2"
+            Margin="5,25"
             BackgroundColor="White"
+            Padding="10"
             StrokeShape="RoundRectangle 8,8,8,8"
             StrokeThickness="0">
             <ScrollView>
-                <Label LineBreakMode="WordWrap" 
-                       Padding="15"
-                       Text="The InfoBar positioned at the top indicates the active page and your Name. &#10;&#10; Below, the Current Course Card showcases your progress within your ongoing course. Tap on it to proceed further in this course.In the lower half of the screen, you can find all available courses. &#10;&#10;The Filter bar assists in discovering interesting courses. Below that, you can swipe through the courses. Tap on a specific course to access more detailed information. The greyed-out courses are available once you have completed the corresponding preceding course." 
-                       TextColor="Black" 
-                       FontSize="Medium">
+                <Label 
+                    x:Name="l_InfoBox"              
+                    LineBreakMode="WordWrap" 
+                    Text="The InfoBar positioned at the top indicates the active page and your Name. &#10;&#10; Below, the Current Course Card showcases your progress within your ongoing course. Tap on it to proceed further in this course.In the lower half of the screen, you can find all available courses. &#10;&#10;The Filter bar assists in discovering interesting courses. Below that, you can swipe through the courses. Tap on a specific course to access more detailed information. The greyed-out courses are available once you have completed the corresponding preceding course."
+                    TextColor="Black" 
+                    FontSize="Medium">
                 </Label>
             </ScrollView>
+            
         </Border>
         <!--endregion Infobox-->
         <!--region Filter Courses Bar-->
         <Border 
             Grid.Row="3"
+            Padding="50"
             StrokeThickness="0"
-            BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+            BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}"
             StrokeShape="RoundRectangle 8,8,8,8">
             <SearchBar 
                 Margin="10"
                 VerticalOptions="Center"
                 HorizontalOptions="FillAndExpand"
                 TextChanged="SB_FilterCourses_TextChanged"
-                PlaceholderColor="White"
-                TextColor="White"
+                PlaceholderColor="{AppThemeBinding Light=Black , Dark=White}"
+                TextColor="{AppThemeBinding Light=Black , Dark=White}"
+                CancelButtonColor="Red"
                 Placeholder="Filter courses"
                 FontAttributes="Italic">
             </SearchBar>
@@ -141,6 +193,13 @@
                             StrokeThickness="0"
                             WidthRequest="300"
                             >
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:VM_Courses}},Path=CourseTappedCommand}"
+                                    CommandParameter="{Binding Id}"
+                                    NumberOfTapsRequired="1">
+                                </TapGestureRecognizer>
+                            </Border.GestureRecognizers>
                             <Border.Shadow>
                                 <Shadow Brush="DarkGoldenrod" Opacity=".3" Radius="100" Offset="0,0"></Shadow>
                             </Border.Shadow>
