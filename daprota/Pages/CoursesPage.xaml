@@ -10,7 +10,7 @@
              Title=""
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
     <Grid RowDefinitions=".05*,.2*,.4*,.05*,.2*" RowSpacing="20">
-    <!--region Info Bar-->
+        <!--region Info Bar-->
         <Border
             BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
             Grid.Row="0"
@@ -59,7 +59,7 @@
             StrokeThickness="0">
             <Border.GestureRecognizers>
                 <TapGestureRecognizer
-                    Tapped="TapGestureRecognizer_MyCopurseTapped"
+                    Tapped="TapGestureRecognizer_MyCourseTapped"
                     NumberOfTapsRequired="1">
                 </TapGestureRecognizer>
             </Border.GestureRecognizers>
@@ -87,7 +87,7 @@
                     StrokeShape="RoundRectangle 8,8,8,8"
                     WidthRequest="180"
                     HeightRequest="20">
-                        <ProgressBar 
+                    <ProgressBar 
                             Grid.Row="2"
                             Progress="{Binding CurrentCourseProgressBar}" 
                             ProgressColor="{AppThemeBinding Light=#9B59B6 , Dark=White}"
@@ -96,7 +96,7 @@
                             VerticalOptions="FillAndExpand"
                             HeightRequest="3"
                             ScaleY="10">
-                        </ProgressBar>
+                    </ProgressBar>
                 </Border>
                 <Label 
                     Grid.Row="1" 
@@ -153,7 +153,7 @@
                     FontSize="Medium">
                 </Label>
             </ScrollView>
-            
+
         </Border>
         <!--endregion Infobox-->
         <!--region Filter Courses Bar-->

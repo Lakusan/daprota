@@ -1,7 +1,6 @@
 using daprota.ViewModels;
 using daprota.Models;
 using Microsoft.Maui.Handlers;
-using Microsoft.VisualBasic;
 
 namespace daprota.Pages;
 
@@ -76,7 +75,7 @@ public partial class CoursesPage : ContentPage
         });
     }
 
-    private async void TapGestureRecognizer_MyCopurseTapped(object sender, TappedEventArgs e)
+    private async void TapGestureRecognizer_MyCourseTapped(object sender, TappedEventArgs e)
     {
         await _vm.MyCourseTapped();
     }

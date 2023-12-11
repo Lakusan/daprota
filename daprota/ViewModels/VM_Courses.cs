@@ -9,16 +9,22 @@ namespace daprota.ViewModels
     public partial class VM_Courses : ObservableObject
     {
         private Storage _storage;
-        
-        public List<M_Course> Courses { get; set; }
+
+        [ObservableProperty]
+        public List<M_Course> courses;
+
         [ObservableProperty]
         public M_User currentUser;
+
         [ObservableProperty]
         public M_CurrentCourse currentCourse;
+
         [ObservableProperty]
         public float currentCourseProgressBar;
+
         [ObservableProperty]
         public int currentCourseProgressText;
+
         [ObservableProperty]
         public int currentCourseLessonProgress;
         
@@ -155,13 +161,30 @@ namespace daprota.ViewModels
         [RelayCommand]
         public async Task MyCourseTapped()
         {
-            await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}?Id={CurrentCourse.CurrentCurseId}");
+            //await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}?Id={CurrentCourse.CurrentCurseId}");
+            // find correct course Data from courses
+            M_Course? myCourse = Courses.FirstOrDefault(Courses => Courses.Id == CurrentCourse.CurrentCurseId);
+            if (myCourse != null)
+            {
+                await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}",
+                    new Dictionary<string, object>
+                    {
+                        {"CurrentCourse", myCourse },
+                    });
+            }
         }
-
         [RelayCommand]
         public async Task CourseTapped(int Id)
         {
-            await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}?Id={Id}");
+            // find tapped course by CourseId
+            M_Course? courseTapped = Courses.FirstOrDefault(Courses => Courses.Id == Id);
+                if(courseTapped != null)
+                {
+                    await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}", new Dictionary<string, object>
+                {
+                    {"CurrentCourse", courseTapped},
+                });
+            }
         }
         public List<M_Course> GetFilteredItems(string title)
         {
