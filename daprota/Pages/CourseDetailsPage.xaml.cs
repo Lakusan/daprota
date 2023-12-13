@@ -77,4 +77,9 @@ public partial class CourseDetailsPage : ContentPage
             }
         }
     }
+
+    private async void Back_Tapped(object sender, TappedEventArgs e)
+    {
+        await _vm.GoBack();
+    }
 }

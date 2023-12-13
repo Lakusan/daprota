@@ -22,7 +22,6 @@ public partial class ChangeUsernamePage : ContentPage
         base.OnAppearing();
         // set current username
         currentUser = _vm.GetCurrentUserProfile();
-        l_username.Text = currentUser.Username;
     }
 
     private void e_username_TextChanged(object sender, TextChangedEventArgs e)
@@ -35,7 +34,6 @@ public partial class ChangeUsernamePage : ContentPage
     {
         _vm.setNewUsername(tmpUsername);
         currentUser = _vm.GetCurrentUserProfile();
-        l_username.Text = currentUser.Username;
     }
 
     private async void BtnResetClicked(object sender, EventArgs e)
@@ -51,5 +49,9 @@ public partial class ChangeUsernamePage : ContentPage
         if (resetProgress) { 
             _vm.ResetUserProfile();
         }
+    }
+    private async void Back_Tapped(object sender, TappedEventArgs e)
+    {
+        await _vm.GoBack();
     }
 }

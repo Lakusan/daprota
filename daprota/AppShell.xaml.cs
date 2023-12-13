@@ -8,6 +8,7 @@ namespace daprota
         {
             InitializeComponent();
 
+            Routing.RegisterRoute(nameof(CoursesPage), typeof(CoursesPage));
             Routing.RegisterRoute(nameof(CourseDetailsPage), typeof(CourseDetailsPage));
             Routing.RegisterRoute(nameof(QuestionsPage), typeof(QuestionsPage));
             Routing.RegisterRoute(nameof(ChangeUsernamePage), typeof(ChangeUsernamePage));

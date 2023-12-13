@@ -6,35 +6,37 @@
              x:Class="daprota.Pages.ChangeUsernamePage"
              x:DataType="ViewModel:VM_Settings"
              Title=""
-             Shell.NavBarIsVisible="false"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
     <Grid RowDefinitions=".05*,.15*,.2*,.08*,.05*,.2*" RowSpacing="5">
         <!--region Info Bar-->
         <Border
-        BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=SlateBlue}"
-        Grid.Row="0"
-        HorizontalOptions="Fill"
-        VerticalOptions="Fill"
-        StrokeThickness="0">
+   BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+   Grid.Row="0"
+   HorizontalOptions="Fill"
+   VerticalOptions="Fill"
+   StrokeThickness="0">
             <Grid ColumnDefinitions=".3*,.6*,.3*">
-                <Label
-                x:Name="l_username"
-                Grid.Column="0"
-                Padding="10"
-                Text="{Binding currentUser.Username}"
-                TextColor="{AppThemeBinding Light=White , Dark=White}"
-                FontSize="10"
-                FontAutoScalingEnabled="True"
-                VerticalTextAlignment="Center"
-                ToolTipProperties.Text="Long Tap To change username">
-                </Label>
+                <Image
+            Margin="10,5,5,5"
+            Aspect="AspectFit"
+            Source="back.png"
+            Grid.Column="0"
+            HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Tapped">
+
+                        </TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
                 <Label 
-                Grid.Column="1"
-                Text="Courses"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                TextColor="{AppThemeBinding Light=White , Dark=White}"
-                FontSize="20">
+           Grid.Column="1"
+           Text="Settings"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           TextColor="{AppThemeBinding Light=White , Dark=White}"
+           FontSize="20">
                 </Label>
             </Grid>
         </Border>

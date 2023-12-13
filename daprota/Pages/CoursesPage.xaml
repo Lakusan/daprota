@@ -5,38 +5,33 @@
              xmlns:ViewModel="clr-namespace:daprota.ViewModels"
              x:Class="daprota.Pages.CoursesPage"
              x:DataType="ViewModel:VM_Courses"
-             Shell.NavBarIsVisible="True"
-             Shell.FlyoutBehavior="Flyout"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
              Title=""
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
     <Grid RowDefinitions=".05*,.2*,.4*,.05*,.2*" RowSpacing="20">
         <!--region Info Bar-->
         <Border
-            BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
-            Grid.Row="0"
-            HorizontalOptions="Fill"
-            VerticalOptions="Fill"
-            StrokeThickness="0">
+   BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+   Grid.Row="0"
+   HorizontalOptions="Fill"
+   VerticalOptions="Fill"
+   StrokeThickness="0">
             <Grid ColumnDefinitions=".3*,.6*,.3*">
-                <Label
-                    x:Name="l_username"
-                    Grid.Column="0"
-                    Padding="10"
-                    Text="CurrentUSerNam,e"
-                    TextColor="{AppThemeBinding Light=White , Dark=White}"
-                    FontSize="15"
-                    VerticalTextAlignment="Center"
-                    ToolTipProperties.Text="Long Tap To change username">
+           <Label 
+           Grid.Column="1"
+           Text="Courses"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           TextColor="{AppThemeBinding Light=White , Dark=White}"
+           FontSize="20">
                 </Label>
-                <Label 
-                    Grid.Column="1"
-                    Text="Courses"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    TextColor="{AppThemeBinding Light=White , Dark=White}"
-                    FontSize="20">
-                </Label>
-                <Image Grid.Column="2" Source="settings.png" Margin="20,0,0,0">
+                <Image 
+           Margin="5,5,10,5"
+           Grid.Column="2"
+           Source="settings.png"
+           HorizontalOptions="End"
+           VerticalOptions="Center">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Settings_Tapped"></TapGestureRecognizer>
                     </Image.GestureRecognizers>

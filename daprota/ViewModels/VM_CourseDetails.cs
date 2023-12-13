@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using daprota.Models;
+using daprota.Pages;
 using daprota.Services;
 
 namespace daprota.ViewModels
@@ -36,11 +37,11 @@ namespace daprota.ViewModels
             CourseDetails = new();
         }
 
-        //[RelayCommand]
-        //async Task GoBack()
-        //{
-        //    await Shell.Current.GoToAsync("..");
-        //}
+        [RelayCommand]
+        public async Task GoBack()
+        {
+            await Shell.Current.GoToAsync($"{nameof(CoursesPage)}");
+        }
 
         public async Task GetLessonData()
         {

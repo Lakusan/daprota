@@ -29,7 +29,6 @@ public partial class CoursesPage : ContentPage
         base.OnAppearing();
         // set correct username
         currentUser = _vm.GetCurrentUserProfile();
-        l_username.Text = currentUser.Username;
 
         //-> TODO: Load Course Data in App.xaml.cs once from xml ; runtime -> Obj
         await _vm.LoadDataAsync();
