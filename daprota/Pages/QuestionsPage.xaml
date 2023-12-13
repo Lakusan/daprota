@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="daprota.Pages.QuestionsPage"
+             xmlns:ViewModel="clr-namespace:daprota.ViewModels"
+             xmlns:Model="clr-namespace:daprota.Models">
+
+    
+    <!--region Toolbar-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="dotnet_bot.png" Text="do something"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <!--endregion-->
+    
+    
+    <VerticalStackLayout x:Name="VSL_Question" VerticalOptions="StartAndExpand">
+        <Label 
+            Text="What is the name of the following?"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+        <Label Text="{Binding qText}"
+               LineBreakMode="WordWrap">
+        </Label>
+        <Label Text="Please select something">
+        </Label>
+        <CollectionView ItemsSource="{Binding qAnswers}"
+                        SelectionMode="Single"
+                        SelectionChanged="CollectionView_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout>
+                        <BoxView HeightRequest="15"
+                                 WidthRequest="15"
+                                 CornerRadius="45"
+                                 Color="Green">
+                        </BoxView>
+                        <Label Text="{Binding Text}" LineBreakMode="WordWrap"></Label>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button 
+            x:Name="btn_generateQuestion" 
+            Text="Question" 
+            HeightRequest="20" 
+            WidthRequest="100" 
+            VerticalOptions="End" 
+            Clicked="btn_generateQuestion_Clicked">
+        </Button>
+        <Label x:Name="L_Test" BackgroundColor="red" Text="{Binding testText}"></Label>
+    </VerticalStackLayout>
+</ContentPage>

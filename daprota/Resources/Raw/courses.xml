@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfM_Course xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<M_Course>
+		<Id>0</Id>
+		<Title>Fundamentals DSGVO</Title>
+		<Description_long>Long M_Cours Description</Description_long>
+		<Description_short>Short M_Cours Description</Description_short>
+		<Image>thinking.png</Image>
+		<Category>Beginner</Category>
+	</M_Course>
+	<M_Course>
+		<Id>1</Id>
+		<Title>Second Course</Title>
+		<Description_long>Long M_Cours Description</Description_long>
+		<Description_short>Short M_Cours Description</Description_short>
+		<Image>dotnet_bot.png</Image>
+		<Category>Advanced</Category>
+	</M_Course>
+	<M_Course>
+		<Id>2</Id>
+		<Title>Third Course</Title>
+		<Description_long>Long M_Cours Description</Description_long>
+		<Description_short>Short M_Cours Description</Description_short>
+		<Image>dotnet_bot.png</Image>
+		<Category>Advanced</Category>
+	</M_Course>
+	<M_Course>
+		<Id>3</Id>
+		<Title>Fourth Course</Title>
+		<Description_long>Long M_Cours Description</Description_long>
+		<Description_short>Short M_Cours Description</Description_short>
+		<Image>dotnet_bot.png</Image>
+		<Category>Professional</Category>
+	</M_Course>
+	<M_Course>
+		<Id>4</Id>
+		<Title>Fifth Course</Title>
+		<Description_long>Long M_Cours Description</Description_long>
+		<Description_short>Short M_Cours Description</Description_short>
+		<Image>dotnet_bot.png</Image>
+		<Category>Quiz</Category>
+	</M_Course>
+</ArrayOfM_Course>

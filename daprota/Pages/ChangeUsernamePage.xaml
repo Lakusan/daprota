@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Model="clr-namespace:daprota.Models"
+             xmlns:ViewModel="clr-namespace:daprota.ViewModels"
+             x:Class="daprota.Pages.ChangeUsernamePage"
+             x:DataType="ViewModel:VM_Settings"
+             Title=""
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
+    <Grid RowDefinitions=".05*,.15*,.2*,.08*,.05*,.2*" RowSpacing="5">
+        <!--region Info Bar-->
+        <Border
+   BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+   Grid.Row="0"
+   HorizontalOptions="Fill"
+   VerticalOptions="Fill"
+   StrokeThickness="0">
+            <Grid ColumnDefinitions=".3*,.6*,.3*">
+                <Image
+            Margin="10,5,5,5"
+            Aspect="AspectFit"
+            Source="back.png"
+            Grid.Column="0"
+            HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Tapped">
+
+                        </TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label 
+           Grid.Column="1"
+           Text="Settings"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           TextColor="{AppThemeBinding Light=White , Dark=White}"
+           FontSize="20">
+                </Label>
+            </Grid>
+        </Border>
+        <!--endregion Info Bar-->
+        <!--#region Logo-->
+        <Border 
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            StrokeShape="RoundRectangle 8,8,8,8"
+            WidthRequest="200"
+            HeightRequest="150"
+            StrokeThickness="0"
+            BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
+            <VerticalStackLayout>
+                <Image 
+                    WidthRequest="100"
+                    HeightRequest="100"
+                    Source="daprota_appicon.png"
+                    Aspect="AspectFill"
+                    Margin="20,0,0,0">
+                </Image>
+                <Label Text="Settings" 
+                       FontAttributes="Bold" 
+                       FontSize="Title" 
+                       TextColor="{AppThemeBinding Light=#333333, Dark=#ffffff}" 
+                       HorizontalOptions="Center">
+                </Label>
+            </VerticalStackLayout>
+        </Border>
+<!--#endregion Logo-->
+<!--#region Information Text--> 
+        <Border
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            StrokeShape="RoundRectangle 8,8,8,8"
+            StrokeThickness=".5"
+            WidthRequest="350"
+            HeightRequest="180"
+            Padding="20"
+            Background="#f5f5f5">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <Label 
+                        Grid.Row="1" Text="On this Page you can change your Username.&#10;&#10;Please use the Entry Filed below to change your Username.&#10;&#10;The App will use this name to adress you during the lerning experience.&#10;&#10;If you want to change your username again, just long tap on your username anywhere in this Application.&#10;&#10;Otherwise you could access this Settings Menu via the Infobar and the Settings tap."
+                        LineBreakMode="WordWrap"
+                        HorizontalOptions="StartAndExpand"
+                        TextColor="{AppThemeBinding Light=#333333, Dark=#333333}">
+                    </Label>
+                    <Image 
+                        Source="dotnet_bot.png"
+                        WidthRequest="100"
+                        HeightRequest="50"
+                        Aspect="AspectFit">
+                    </Image>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+<!--#endregion Information Text-->
+<!--#region Entry new Username-->
+        <Border
+            Grid.Row="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            StrokeShape="RoundRectangle 8,8,8,8"
+            StrokeThickness="0"
+            WidthRequest="200"
+            HeightRequest="60"
+            Background="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
+            <VerticalStackLayout>
+                <Entry
+                    VerticalOptions="Start"
+                    x:Name="e_username"
+                    Placeholder="Enter new Username"
+                    FontAttributes="Italic"
+                    ToolTipProperties.Text="Enter your new Username and Confirm"
+                    TextColor="{AppThemeBinding Light=Black , Dark=White}"
+                    PlaceholderColor="{AppThemeBinding Light=Black , Dark=White}"
+                    ClearButtonVisibility="WhileEditing"
+                    TextChanged="e_username_TextChanged">
+                </Entry>
+                <Label 
+                    Text="New Username" 
+                    FontSize="10" 
+                    VerticalOptions="End"
+                    Margin="5,-8,0,0"
+                    TextColor="{AppThemeBinding Light=Black , Dark=White}">
+                </Label>
+            </VerticalStackLayout>
+        </Border>
+<!--#endregion Entry new Username-->
+<!--#region Button Confirm new Username-->
+        <Border Grid.Row="4"
+                WidthRequest="150"
+                HeightRequest="50"
+                StrokeThickness="0">
+            <Button 
+                Text="Change Username"
+                TextColor="White"
+                BackgroundColor="{AppThemeBinding Light=#0070c0, Dark=#2980B9}"
+                Clicked="BtnChangeUsernameClicked">
+            </Button>
+        </Border>
+<!--#endregion Button Confirm new Username-->
+<!--#region Reset App and User Progress-->
+        <Border 
+            Grid.Row="5"
+            Padding="10"
+            Margin="10"
+            StrokeThickness="3"
+            Stroke="DarkRed"
+            Background="#f5f5f5"
+            StrokeShape="RoundRectangle 8,8,8,8">
+            <Grid RowDefinitions=".6*,.4*">
+                <Border Stroke="DarkRed"
+                        StrokeThickness=".5"
+                        StrokeShape="RoundRectangle 8,8,8,8"
+                        Background="#f5f5f5">
+                    <Label 
+                        Text="Use the Reset Button to reset the App and Your Data completely to restart your journey!"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        TextColor="{AppThemeBinding Light=#333333, Dark=#333333}"
+                        Padding="10">
+                    </Label>
+                </Border>
+                <Button 
+                    Grid.Row="1"
+                    Text="Reset"
+                    WidthRequest="150"
+                    HeightRequest="50"
+                    BackgroundColor="DarkRed"
+                    TextColor="White"
+                    TextTransform="Uppercase"
+                    Clicked="BtnResetClicked">
+                </Button>
+            </Grid>
+        </Border>
+<!--#endregion Reset App and User Progress-->
+    </Grid>
+</ContentPage>

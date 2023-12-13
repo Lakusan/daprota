@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Model="clr-namespace:daprota.Models"
+             xmlns:ViewModel="clr-namespace:daprota.ViewModels"
+             x:Class="daprota.Pages.CoursesPage"
+             x:DataType="ViewModel:VM_Courses"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             Title=""
+             BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
+    <Grid RowDefinitions=".05*,.2*,.4*,.05*,.2*" RowSpacing="20">
+        <!--region Info Bar-->
+        <Border
+   BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+   Grid.Row="0"
+   HorizontalOptions="Fill"
+   VerticalOptions="Fill"
+   StrokeThickness="0">
+            <Grid ColumnDefinitions=".3*,.6*,.3*">
+           <Label 
+           Grid.Column="1"
+           Text="Courses"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           TextColor="{AppThemeBinding Light=White , Dark=White}"
+           FontSize="20">
+                </Label>
+                <Image 
+           Margin="5,5,10,5"
+           Grid.Column="2"
+           Source="settings.png"
+           HorizontalOptions="End"
+           VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Settings_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+        <!--endregion Info Bar-->
+        <!--region Current Course View-->
+        <Border
+            Margin="5"
+            Grid.Row="1"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            StrokeShape="RoundRectangle 8,8,8,8"
+            Background="{AppThemeBinding Light=#3498DB, Dark=#2980B9}"
+            StrokeThickness="0">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="TapGestureRecognizer_MyCourseTapped"
+                    NumberOfTapsRequired="1">
+                </TapGestureRecognizer>
+            </Border.GestureRecognizers>
+            <Grid 
+                Margin="10"
+                RowDefinitions=".2*,.6*,.2*"
+                ColumnDefinitions=".5*,.5*">
+                <Label 
+                    Grid.Row="0"            
+                    Grid.Column="0"
+                    Text="{Binding CurrentCourse.CurrentCourseTitle}"
+                    HorizontalOptions="Start"
+                    FontSize="15"
+                    TextColor="White">
+                </Label>
+                <Label 
+                    Grid.Row="1"
+                    FontSize="10" 
+                    TextColor="White" 
+                    VerticalOptions="Start" 
+                    Margin="5,10,0,0" Text="Progress"></Label>
+                <Border 
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    StrokeShape="RoundRectangle 8,8,8,8"
+                    WidthRequest="180"
+                    HeightRequest="20">
+                    <ProgressBar 
+                            Grid.Row="2"
+                            Progress="{Binding CurrentCourseProgressBar}" 
+                            ProgressColor="{AppThemeBinding Light=#9B59B6 , Dark=White}"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            HeightRequest="3"
+                            ScaleY="10">
+                    </ProgressBar>
+                </Border>
+                <Label 
+                    Grid.Row="1" 
+                    FontSize="10" 
+                    TextColor="White"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,10"
+                    Text="{Binding CurrentCourseProgressText, StringFormat='{0}%'}">
+                </Label>
+                <Label 
+                    Grid.Row="3" 
+                    Grid.Column="0" 
+                    Text="{Binding CurrentCourseLessonProgress, StringFormat='{0}/4 Lessons'}" 
+                    FontSize="20" 
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start">
+                </Label>
+                <Image 
+                    Grid.Row="0"
+                    Grid.RowSpan="2" 
+                    Grid.Column="1" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Source="{Binding CurrentCourse.Image}">
+                </Image>
+                <Label 
+                    Grid.Row="3" 
+                    Grid.Column="3"
+                    Text="Level: Intro"
+                    FontSize="20" 
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start">
+                </Label>
+            </Grid>
+        </Border>
+        <!--endregion Current Course View-->
+        <!--region Infobox-->
+        <Border 
+            Grid.Row="2"
+            Margin="5,25"
+            BackgroundColor="White"
+            Padding="10"
+            StrokeShape="RoundRectangle 8,8,8,8"
+            StrokeThickness="0">
+            <ScrollView>
+                <Label 
+                    x:Name="l_InfoBox"              
+                    LineBreakMode="WordWrap" 
+                    Text="The InfoBar positioned at the top indicates the active page and your Name. &#10;&#10; Below, the Current Course Card showcases your progress within your ongoing course. Tap on it to proceed further in this course.In the lower half of the screen, you can find all available courses. &#10;&#10;The Filter bar assists in discovering interesting courses. Below that, you can swipe through the courses. Tap on a specific course to access more detailed information. The greyed-out courses are available once you have completed the corresponding preceding course."
+                    TextColor="Black" 
+                    FontSize="Medium">
+                </Label>
+            </ScrollView>
+
+        </Border>
+        <!--endregion Infobox-->
+        <!--region Filter Courses Bar-->
+        <Border 
+            Grid.Row="3"
+            Padding="50"
+            StrokeThickness="0"
+            BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}"
+            StrokeShape="RoundRectangle 8,8,8,8">
+            <SearchBar 
+                Margin="10"
+                VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand"
+                TextChanged="SB_FilterCourses_TextChanged"
+                PlaceholderColor="{AppThemeBinding Light=Black , Dark=White}"
+                TextColor="{AppThemeBinding Light=Black , Dark=White}"
+                CancelButtonColor="Red"
+                Placeholder="Filter courses"
+                FontAttributes="Italic">
+            </SearchBar>
+        </Border>
+        <!--endregion Filter Courses Bar-->
+        <!--region Courses Carousel-->
+        <CarouselView 
+            x:Name="CarV_Courses"
+            Grid.Row="4"
+            Grid.Column="0"
+            Loop="False"
+            ItemsSource="{Binding Courses}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="Model:M_Course">
+                    <Grid>
+                        <Border 
+                            BackgroundColor="{AppThemeBinding Light=#3498DB, Dark=#2980B9}"
+                            HeightRequest="150"
+                            StrokeShape="RoundRectangle 8,8,8,8"
+                            StrokeThickness="0"
+                            WidthRequest="300"
+                            >
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:VM_Courses}},Path=CourseTappedCommand}"
+                                    CommandParameter="{Binding Id}"
+                                    NumberOfTapsRequired="1">
+                                </TapGestureRecognizer>
+                            </Border.GestureRecognizers>
+                            <Border.Shadow>
+                                <Shadow Brush="DarkGoldenrod" Opacity=".3" Radius="100" Offset="0,0"></Shadow>
+                            </Border.Shadow>
+                            <Grid RowDefinitions=".5*,.5*" ColumnDefinitions=".5*,.5*">
+                                <Border Grid.RowSpan="3" Grid.Column="1" StrokeThickness="0">
+                                    <Image 
+                                        Source="{Binding Image}"
+                                        Aspect="AspectFit">
+                                    </Image>
+                                </Border>
+                                <VerticalStackLayout Grid.RowSpan="3" Margin="10">
+                                    <Label VerticalOptions="Start" Text="{Binding Title}" TextColor="White" FontSize="Medium"></Label>
+                                    <Label  Text="{Binding Description_short}" TextColor="White" FontSize="Small"></Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <!--endregion Courses Carousel-->
+    </Grid>
+</ContentPage>

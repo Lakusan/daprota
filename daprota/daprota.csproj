@@ -57,9 +57,62 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\back.png" />
+	  <None Remove="Resources\Images\daprota_appicon.png" />
+	  <None Remove="Resources\Images\lesson_tick_false.png" />
+	  <None Remove="Resources\Images\lesson_tick_true.png" />
+	  <None Remove="Resources\Images\settings.png" />
+	  <None Remove="Resources\Raw\answers.xml" />
+	  <None Remove="Resources\Raw\courses.xml" />
+	  <None Remove="Resources\Raw\defaultUserProfile.xml" />
+	  <None Remove="Resources\Raw\lessons.xml" />
+	  <None Remove="Resources\Raw\questions.xml" />
+	  <None Remove="Resources\Raw\users.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\CourseDetailsPage.xaml.cs">
+	    <DependentUpon>CourseDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\CoursesPage.xaml.cs">
+	    <DependentUpon>CoursesPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\defaultUserProfile.xml">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\ChangeUsernamePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\CourseDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\CoursesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Debug.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\LessonChatPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\QuestionsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptiondaprotaHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

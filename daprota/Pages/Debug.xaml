@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="daprota.Pages.Debug"
+             xmlns:ViewModel="clr-namespace:daprota.ViewModels"
+             x:DataType="ViewModel:VM_Debug"
+             xmlns:Model="clr-namespace:daprota.Models"
+             Title="Debug Page">
+
+
+    <StackLayout Spacing="20">
+        
+    <Border WidthRequest="300" HeightRequest="80">
+        <Grid RowDefinitions=".2*,.6*,.2*" ColumnDefinitions=".2*, .6*, .2*">
+            <Label Text="Lesson 1" Grid.Row="0" FontSize="12" Grid.Column="1" Background="Orange"></Label>
+            <Label Grid.Row="0" Grid.Column="0" Background="LightBlue"></Label>
+            <Label Text="Description" FontSize="10" Grid.Row="1" Grid.Column="1" Background="Green"></Label>
+            <Label Grid.Row="1" Grid.Column="0" Background="Purple"></Label>
+            <Image Grid.Column="0" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+            <Image Grid.Column="2" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+        </Grid>
+    </Border>
+    <Border WidthRequest="300" HeightRequest="80">
+        <Grid RowDefinitions=".2*,.6*,.2*" ColumnDefinitions=".2*, .6*, .2*">
+            <Label Text="Lesson 1" Grid.Row="0" FontSize="12" Grid.Column="1" Background="Orange"></Label>
+            <Label Grid.Row="0" Grid.Column="0" Background="LightBlue"></Label>
+            <Label Text="Description" FontSize="10" Grid.Row="1" Grid.Column="1" Background="Green"></Label>
+            <Label Grid.Row="1" Grid.Column="0" Background="Purple"></Label>
+            <Image Grid.Column="0" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+            <Image Grid.Column="2" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+        </Grid>
+    </Border>
+    <Border WidthRequest="300" HeightRequest="80">
+        <Grid RowDefinitions=".2*,.6*,.2*" ColumnDefinitions=".2*, .6*, .2*">
+            <Label Text="Lesson 1" Grid.Row="0" FontSize="12" Grid.Column="1" Background="Orange"></Label>
+            <Label Grid.Row="0" Grid.Column="0" Background="LightBlue"></Label>
+            <Label Text="Description" FontSize="10" Grid.Row="1" Grid.Column="1" Background="Green"></Label>
+            <Label Grid.Row="1" Grid.Column="0" Background="Purple"></Label>
+            <Image Grid.Column="0" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+            <Image Grid.Column="2" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+        </Grid>
+    </Border>
+    <Border WidthRequest="300" HeightRequest="80">
+        <Grid RowDefinitions=".2*,.6*,.2*" ColumnDefinitions=".2*, .6*, .2*">
+            <Label Text="Lesson 1" Grid.Row="0" FontSize="12" Grid.Column="1" Background="Orange"></Label>
+            <Label Grid.Row="0" Grid.Column="0" Background="LightBlue"></Label>
+            <Label Text="Description" FontSize="10" Grid.Row="1" Grid.Column="1" Background="Green"></Label>
+            <Label Grid.Row="1" Grid.Column="0" Background="Purple"></Label>
+            <Image Grid.Column="0" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+            <Image Grid.Column="2" Grid.RowSpan="6" Aspect="AspectFit" Source="dotnet_bot.png"></Image>
+        </Grid>
+    </Border>
+
+    </StackLayout>
+</ContentPage>
