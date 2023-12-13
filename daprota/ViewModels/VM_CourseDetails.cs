@@ -1,33 +1,50 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using daprota.Models;
+using daprota.Services;
 
 namespace daprota.ViewModels
 {
-    [QueryProperty("Id", "Id")]
     [QueryProperty("CurrentCourse","CurrentCourse")]
+    [QueryProperty("CurrentCourseProgressBar", "CurrentCourseProgressBar")]
+    [QueryProperty("CurrentCourseProgressText", "CurrentCourseProgressText")]
+    [QueryProperty("CurrentCourseLessonProgress", "CurrentCourseLessonProgress")]
     public partial class VM_CourseDetails : ObservableObject
     {
         [ObservableProperty]
         public M_Course currentCourse;
         
         [ObservableProperty]
-        public int courseId;
+        public float currentCourseProgressBar;
 
         [ObservableProperty]
-        public string courseTitle;
+        public int currentCourseProgressText;
 
         [ObservableProperty]
-        public string courseImage;
+        public int currentCourseLessonProgress;
 
         [ObservableProperty]
-        public string id;
+        public M_CourseDetails courseDetails;
+        
+        public string DebugText { get; set; }
 
+        private Data _data;
 
-        [RelayCommand]
-        async Task GoBack()
+        public VM_CourseDetails(Data d)
         {
-            await Shell.Current.GoToAsync("..");
+            _data = d;
+            CourseDetails = new();
+        }
+
+        //[RelayCommand]
+        //async Task GoBack()
+        //{
+        //    await Shell.Current.GoToAsync("..");
+        //}
+
+        public async Task GetLessonData()
+        {
+            CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
         }
     }
 }

@@ -17,14 +17,13 @@ namespace daprota
 
         public static M_User _defaulUserProfile;
         
-        // CONSTANTS
+        // CONSTANTS -> Maybe obsolet
         public static int MAX_LESSONS_PER_COURSE = 4;
 
         public App()
         {
             InitializeComponent();
             // Set default User Profile
-            //-> TODO: Change to XML and load on start
             _defaulUserProfile = new M_User()
             {
                 UserId = 0,

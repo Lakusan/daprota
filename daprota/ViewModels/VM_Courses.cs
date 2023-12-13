@@ -9,6 +9,7 @@ namespace daprota.ViewModels
     public partial class VM_Courses : ObservableObject
     {
         private Storage _storage;
+        private Data _data;
 
         [ObservableProperty]
         public List<M_Course> courses;
@@ -28,9 +29,10 @@ namespace daprota.ViewModels
         [ObservableProperty]
         public int currentCourseLessonProgress;
         
-        public VM_Courses(Storage s)
+        public VM_Courses(Storage s, Data d)
         {
             _storage = s;
+            _data = d;
             currentUser = GetCurrentUserProfile();
         }
 
@@ -154,7 +156,8 @@ namespace daprota.ViewModels
         // Data
         public async Task LoadDataAsync()
         {
-            Courses = await _storage.ReadEmbeddedXML<List<M_Course>>("courses.xml");
+            Courses = await _data.GetCourses();
+            //Courses = await _storage.ReadEmbeddedXML<List<M_Course>>("courses.xml");
             await GetCurrentCourseData();
         }
         // Interactions
@@ -170,6 +173,9 @@ namespace daprota.ViewModels
                     new Dictionary<string, object>
                     {
                         {"CurrentCourse", myCourse },
+                        {"CurrentCourseProgressBar", CurrentCourseProgressBar },
+                        {"CurrentCourseProgressText", CurrentCourseProgressText },
+                        {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
                     });
             }
         }
@@ -183,12 +189,20 @@ namespace daprota.ViewModels
                     await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}", new Dictionary<string, object>
                 {
                     {"CurrentCourse", courseTapped},
+                    {"CurrentCourseProgressBar", CurrentCourseProgressBar },
+                    {"CurrentCourseProgressText", CurrentCourseProgressText },
+                    {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
                 });
             }
         }
         public List<M_Course> GetFilteredItems(string title)
         {
             return Courses.Where(course => course.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+        [RelayCommand]
+        public async Task SettingsTapped()
+        {
+            await Shell.Current.GoToAsync($"{nameof(ChangeUsernamePage)}");
         }
     }
 }

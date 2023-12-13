@@ -36,15 +36,11 @@
                     TextColor="{AppThemeBinding Light=White , Dark=White}"
                     FontSize="20">
                 </Label>
-                <Label 
-                    Grid.Column="2"
-                    Padding="10"
-                    Text="Debug Text"
-                    TextColor="{AppThemeBinding Light=White , Dark=White}"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    FontSize="12">
-                </Label>
+                <Image Grid.Column="2" Source="settings.png" Margin="20,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Settings_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
         </Border>
         <!--endregion Info Bar-->

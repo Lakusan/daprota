@@ -1,10 +1,13 @@
-﻿using System.Text.Json;
+﻿using daprota.Models;
+using System.Text.Json;
 using System.Xml.Serialization;
 
 namespace daprota.Services
 {
     public class Storage
     {
+        public static List<M_Question> questions { get; set; }
+
         public string GetUserDataFromPrefs()
         {
             string s = Preferences.Default.Get<string>("Settings", null);

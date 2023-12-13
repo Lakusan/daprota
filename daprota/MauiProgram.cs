@@ -21,18 +21,22 @@ namespace daprota
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            // Services
+            builder.Services.AddSingleton<Storage>();
+            builder.Services.AddSingleton<Data>();
             // Pages
             builder.Services.AddSingleton<CoursesPage>();
             builder.Services.AddTransient<CourseDetailsPage>();
             builder.Services.AddTransient<QuestionsPage>();
             builder.Services.AddTransient<ChangeUsernamePage>();
+            builder.Services.AddTransient<LessonChatPage>();
+            builder.Services.AddTransient<Debug>();
             // ViewModels
             builder.Services.AddSingleton<VM_Courses>();
             builder.Services.AddTransient<VM_CourseDetails>();
             builder.Services.AddTransient<VM_Questions>();
             builder.Services.AddTransient<VM_Settings>();
-            // Services
-            builder.Services.AddSingleton<Storage>();
+            builder.Services.AddTransient<VM_Debug>();
 
             return builder.Build();
         }

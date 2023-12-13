@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfM_Lesson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<M_Lesson>
+		<Id>0</Id>
+		<CourseId>0</CourseId>
+		<Description>Lesson 1 Description</Description>
+	</M_Lesson>
+	<M_Lesson>
+		<Id>1</Id>
+		<CourseId>0</CourseId>
+		<Description>Lesson 2 Description</Description>
+	</M_Lesson>
+	<M_Lesson>
+		<Id>2</Id>
+		<CourseId>0</CourseId>
+		<Description>Lesson 3 Description</Description>
+	</M_Lesson>
+	<M_Lesson>
+		<Id>3</Id>
+		<CourseId>0</CourseId>
+		<Description>Lesson 4 Description</Description>
+	</M_Lesson>
+</ArrayOfM_Lesson>

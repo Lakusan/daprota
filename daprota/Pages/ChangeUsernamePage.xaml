@@ -6,7 +6,7 @@
              x:Class="daprota.Pages.ChangeUsernamePage"
              x:DataType="ViewModel:VM_Settings"
              Title=""
-             Shell.NavBarIsVisible="True"
+             Shell.NavBarIsVisible="false"
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
     <Grid RowDefinitions=".05*,.15*,.2*,.08*,.05*,.2*" RowSpacing="5">
         <!--region Info Bar-->

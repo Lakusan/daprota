@@ -4,12 +4,11 @@ namespace daprota.Models
 {
     public partial class M_Course : ObservableObject
     {
-        public required int Id { get; set; }
-        public required string Title { get; set; }
-        public required string Description_long { get; set; }
-        public required string Description_short { get; set; }
-        public required string Image { get; set; }
-        public required string Category { get; set; }
-        public List<M_Question> Questions { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description_long { get; set; }
+        public string Description_short { get; set; }
+        public string Image { get; set; }
+        public string Category { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace daprota.ViewModels
         private Storage _storage;
         public M_User currentUser {  get; set; }
         
-
         public VM_Settings(Storage s) { 
             _storage = s;
             currentUser = App._userData;
@@ -36,6 +35,5 @@ namespace daprota.ViewModels
             App._userData = App._defaulUserProfile;
             currentUser = App._userData;
         }
-
     }
 }

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfM_Answer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Answer 0 to Question 0</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Question 0 Answer 0</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Question 0 Answer 0</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Question 0 Answer 0</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Question 0 Answer 0</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Question 0 Answer 0</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Question 0 Answer 0</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>0</Id>
+		<QuestionId>0</QuestionId>
+		<AnswerText>Question 0 Answer 0</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+</ArrayOfM_Answer>

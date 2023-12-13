@@ -1,5 +1,4 @@
-﻿using Android.Database;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace daprota.Models
 {

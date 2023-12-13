@@ -57,12 +57,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\back.png" />
 	  <None Remove="Resources\Images\daprota_appicon.png" />
+	  <None Remove="Resources\Images\lesson_tick_false.png" />
+	  <None Remove="Resources\Images\lesson_tick_true.png" />
+	  <None Remove="Resources\Images\settings.png" />
+	  <None Remove="Resources\Raw\answers.xml" />
 	  <None Remove="Resources\Raw\courses.xml" />
-	  <None Remove="Resources\Raw\course_data.xml" />
 	  <None Remove="Resources\Raw\defaultUserProfile.xml" />
+	  <None Remove="Resources\Raw\lessons.xml" />
+	  <None Remove="Resources\Raw\questions.xml" />
 	  <None Remove="Resources\Raw\users.xml" />
-	  <None Remove="Resources\Raw\user_progress.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -95,6 +100,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\CoursesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Debug.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\LessonChatPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\QuestionsPage.xaml">

@@ -79,4 +79,9 @@ public partial class CoursesPage : ContentPage
     {
         await _vm.MyCourseTapped();
     }
+
+    private async void TapGestureRecognizer_Settings_Tapped(object sender, TappedEventArgs e)
+    {
+        await _vm.SettingsTapped();
+    }
 }
