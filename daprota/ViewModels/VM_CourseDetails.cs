@@ -47,5 +47,27 @@ namespace daprota.ViewModels
         {
             CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
         }
+
+        [RelayCommand]
+        public async Task GoToLesson(M_Lesson lesson)
+        {
+            switch (lesson.Id)
+            {
+                case 0:
+                    await Shell.Current.GoToAsync($"{nameof(IntroPage)}");
+                    break;
+                case 1:
+                    // Connect Words
+                    break;
+                case 2:
+                    // Conversation
+                    break;
+                case 3:
+                    //Quiz
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

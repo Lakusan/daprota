@@ -120,6 +120,8 @@ namespace daprota.Services
         }
         public async Task<M_CourseDetails> GenerateAsyncCourseDetails(M_Course course)
         {
+            // TODO: add User progress to lessons and calc course progresson based on passed lessons.
+            // Add isDone to course as well
             Data.Courses = await GetCourses();
             Data.Questions = await GetQuestions();
             Data.Answers = await GetAnswers();

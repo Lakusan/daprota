@@ -28,11 +28,6 @@
          Title="Change Username Page"/>
     
     <ShellContent
-        ContentTemplate="{DataTemplate local:LessonChatPage}"
-        Route="Pages.LessonChatPage"
-        Title="LessonChatPage"/>
-
-    <ShellContent
         ContentTemplate="{DataTemplate local:Debug}"
         Route="Pages.Debug"
         Title="Debug"/>

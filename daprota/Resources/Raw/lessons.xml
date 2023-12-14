@@ -4,20 +4,28 @@
 		<Id>0</Id>
 		<CourseId>0</CourseId>
 		<Description>Lesson 1 Description</Description>
+		<Image>book.png</Image>
+		<IsDone>false</IsDone>
 	</M_Lesson>
 	<M_Lesson>
 		<Id>1</Id>
 		<CourseId>0</CourseId>
 		<Description>Lesson 2 Description</Description>
+		<Image>idea.png</Image>
+		<IsDone>false</IsDone>
 	</M_Lesson>
 	<M_Lesson>
 		<Id>2</Id>
 		<CourseId>0</CourseId>
 		<Description>Lesson 3 Description</Description>
+		<Image>head.png</Image>
+		<IsDone>false</IsDone>
 	</M_Lesson>
 	<M_Lesson>
 		<Id>3</Id>
 		<CourseId>0</CourseId>
 		<Description>Lesson 4 Description</Description>
+		<Image>quiz.png</Image>
+		<IsDone>false</IsDone>
 	</M_Lesson>
 </ArrayOfM_Lesson>

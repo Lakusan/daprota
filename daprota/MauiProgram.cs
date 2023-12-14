@@ -29,14 +29,15 @@ namespace daprota
             builder.Services.AddTransient<CourseDetailsPage>();
             builder.Services.AddTransient<QuestionsPage>();
             builder.Services.AddTransient<ChangeUsernamePage>();
-            builder.Services.AddTransient<LessonChatPage>();
             builder.Services.AddTransient<Debug>();
+            builder.Services.AddTransient<IntroPage>();
             // ViewModels
             builder.Services.AddTransient<VM_Courses>();
             builder.Services.AddTransient<VM_CourseDetails>();
             builder.Services.AddTransient<VM_Questions>();
             builder.Services.AddTransient<VM_Settings>();
             builder.Services.AddTransient<VM_Debug>();
+            builder.Services.AddTransient<VM_Intro>();
 
             return builder.Build();
         }

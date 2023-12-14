@@ -82,4 +82,5 @@ public partial class CourseDetailsPage : ContentPage
     {
         await _vm.GoBack();
     }
+
 }
