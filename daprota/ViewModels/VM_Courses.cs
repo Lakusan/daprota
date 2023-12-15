@@ -12,6 +12,9 @@ namespace daprota.ViewModels
         private Data _data;
 
         [ObservableProperty]
+        public M_User user;
+
+        [ObservableProperty]
         public List<M_Course> courses;
 
         [ObservableProperty]
@@ -35,25 +38,25 @@ namespace daprota.ViewModels
             _data = d;
             currentUser = GetCurrentUserProfile();
         }
-
-
-        // Current Course
         public async Task GetCurrentCourseData()
         {
-            try
-            {
-                CurrentCourse = new M_CurrentCourse()
-                {
-                    CurrentCurseId = CurrentUser.ActiveCourseId,
-                    CurrentLessonId = CurrentUser.ActiveLessionId,
-                    CurrentCourseTitle = GetCourseTitleFromCourseId(CurrentUser.ActiveCourseId),
-                    Image = GetCourseImageFromCourseId(CurrentUser.ActiveCourseId),
-                };
-            }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert("ERROR ", $"DATA: {CurrentCourse}\n {ex}", "ok");
-            }
+            await _data.GetCurrentCourse();
+            CurrentCourse = Data.CurrentCourse;
+            
+            //try
+            //{
+            //    CurrentCourse = new M_CurrentCourse()
+            //    {
+            //        CurrentCurseId = CurrentUser.ActiveCourseId,
+            //        CurrentLessonId = CurrentUser.ActiveLessionId,
+            //        CurrentCourseTitle = GetCourseTitleFromCourseId(CurrentUser.ActiveCourseId),
+            //        Image = GetCourseImageFromCourseId(CurrentUser.ActiveCourseId),
+            //    };
+            //}
+            //catch (Exception ex)
+            //{
+            //    await Shell.Current.DisplayAlert("ERROR ", $"DATA: {CurrentCourse}\n {ex}", "ok");
+            //}
         }
         public string GetCourseTitleFromCourseId(int courseId)
         {
@@ -84,70 +87,26 @@ namespace daprota.ViewModels
         {
             return CurrentUser.ActiveCourseId;  
         }
-        public void SetCourseProgressionPercentage(int currentLessonId)
+        public void GetCourseProgressionPercentage()
         {
-            int value = 0;
-            switch (currentLessonId)
-            {
-                case 0:
-                    value = 1;
-                    break;
-                case 1:
-                    value = 25;
-                    break;
-                case 2:
-                    value = 50;
-                    break;
-                case 3:
-                    value = 75;
-                    break;
-                case 5:
-                    value = 100;
-                    break;
-                default:
-                    value = 0;
-                    break;
-            }
-            CurrentCourseProgressText = value;
+            CurrentCourseProgressText = _data.GetCourseProgressionPercentage();
         }
-        public void SetCourseProgressionFloat(int currentLessonId)
+        public void GetCourseProgressionFloat()
         {
-            float value = 0f;
-            switch (currentLessonId)
-            {
-                case 0:
-                    value = 0.1f;
-                    break;
-                case 1:
-                    value = 0.25f;
-                    break;
-                case 2:
-                    value = .5f;
-                    break;
-                case 3:
-                    value = .75f;
-                    break;
-                case 5:
-                    value = 1f;
-                    break;
-                default:
-                    value = 0f;
-                    break;
-            }
-            CurrentCourseProgressBar = value;
+            CurrentCourseProgressBar = _data.GetCourseProgressionFloat();
         }
-        public void SetCurrentCourseLessonProgress(int currentLessonId)
+        public void SetCurrentCourseLessonProgress()
         {
-            if (currentLessonId >=1)
+            User = _data.GetUser();
+            if (User.ActiveLessionId>=1)
             {
-                CurrentCourseLessonProgress = currentLessonId -1;
+                CurrentCourseLessonProgress = User.ActiveLessionId - 1;
             }
             else
             {
                 CurrentCourseLessonProgress =  0;
             }
         }
-
         // User Profile 
         public M_User GetCurrentUserProfile()
         {
@@ -164,20 +123,21 @@ namespace daprota.ViewModels
         [RelayCommand]
         public async Task MyCourseTapped()
         {
+            await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}");
             //await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}?Id={CurrentCourse.CurrentCurseId}");
             // find correct course Data from courses
-            M_Course? myCourse = Courses.FirstOrDefault(Courses => Courses.Id == CurrentCourse.CurrentCurseId);
-            if (myCourse != null)
-            {
-                await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}",
-                    new Dictionary<string, object>
-                    {
-                        {"CurrentCourse", myCourse },
-                        {"CurrentCourseProgressBar", CurrentCourseProgressBar },
-                        {"CurrentCourseProgressText", CurrentCourseProgressText },
-                        {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
-                    });
-            }
+            //M_Course? myCourse = Courses.FirstOrDefault(Courses => Courses.Id == CurrentCourse.CurrentCurseId);
+            //if (myCourse != null)
+            //{
+            //    await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}",
+            //        new Dictionary<string, object>
+            //        {
+            //            {"CurrentCourse", myCourse },
+            //            {"CurrentCourseProgressBar", CurrentCourseProgressBar },
+            //            {"CurrentCourseProgressText", CurrentCourseProgressText },
+            //            {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
+            //        });
+            //}
         }
         [RelayCommand]
         public async Task CourseTapped(int Id)

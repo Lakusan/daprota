@@ -65,12 +65,16 @@
 	  <None Remove="Resources\Images\lesson_tick_false.png" />
 	  <None Remove="Resources\Images\lesson_tick_true.png" />
 	  <None Remove="Resources\Images\quiz.png" />
+	  <None Remove="Resources\Images\send.png" />
 	  <None Remove="Resources\Images\settings.png" />
 	  <None Remove="Resources\Raw\answers.xml" />
+	  <None Remove="Resources\Raw\botmsg.xml" />
+	  <None Remove="Resources\Raw\conversations.xml" />
 	  <None Remove="Resources\Raw\courses.xml" />
 	  <None Remove="Resources\Raw\defaultUserProfile.xml" />
 	  <None Remove="Resources\Raw\lessons.xml" />
 	  <None Remove="Resources\Raw\questions.xml" />
+	  <None Remove="Resources\Raw\userresponses.xml" />
 	  <None Remove="Resources\Raw\users.xml" />
 	</ItemGroup>
 

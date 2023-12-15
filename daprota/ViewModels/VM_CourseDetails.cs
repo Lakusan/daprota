@@ -6,14 +6,10 @@ using daprota.Services;
 
 namespace daprota.ViewModels
 {
-    [QueryProperty("CurrentCourse","CurrentCourse")]
-    [QueryProperty("CurrentCourseProgressBar", "CurrentCourseProgressBar")]
-    [QueryProperty("CurrentCourseProgressText", "CurrentCourseProgressText")]
-    [QueryProperty("CurrentCourseLessonProgress", "CurrentCourseLessonProgress")]
     public partial class VM_CourseDetails : ObservableObject
     {
         [ObservableProperty]
-        public M_Course currentCourse;
+        public M_CurrentCourse currentCourse;
         
         [ObservableProperty]
         public float currentCourseProgressBar;
@@ -37,15 +33,17 @@ namespace daprota.ViewModels
             CourseDetails = new();
         }
 
+        public async Task LoadData()
+        {
+            await _data.GetCurrentCourse();
+            CurrentCourse = Data.CurrentCourse;
+            CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
+        }
+
         [RelayCommand]
         public async Task GoBack()
         {
             await Shell.Current.GoToAsync($"{nameof(CoursesPage)}");
-        }
-
-        public async Task GetLessonData()
-        {
-            CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
         }
 
         [RelayCommand]
@@ -54,7 +52,14 @@ namespace daprota.ViewModels
             switch (lesson.Id)
             {
                 case 0:
-                    await Shell.Current.GoToAsync($"{nameof(IntroPage)}");
+                    await Shell.Current.GoToAsync($"{nameof(IntroPage)}",
+                    new Dictionary<string, object>
+                    {
+                        {"CurrentCourse", CurrentCourse },
+                        {"CurrentCourseProgressBar", CurrentCourseProgressBar },
+                        {"CurrentCourseProgressText", CurrentCourseProgressText },
+                        {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
+                    });
                     break;
                 case 1:
                     // Connect Words

@@ -21,7 +21,7 @@ public partial class CourseDetailsPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        await _vm.GetLessonData();
+        await _vm.LoadData();
         _user = _data.GetUser();
     }
 

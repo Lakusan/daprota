@@ -11,6 +11,3 @@ namespace daprota.Models
         public int ActiveLessionId { get; set; }
     }
 }
-
-
-

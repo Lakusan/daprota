@@ -27,26 +27,17 @@ public partial class CoursesPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        // set correct username
         currentUser = _vm.GetCurrentUserProfile();
 
-        //-> TODO: Load Course Data in App.xaml.cs once from xml ; runtime -> Obj
         await _vm.LoadDataAsync();
-        // get current course data 
-        currentCourse = _vm.CurrentCourse;
-        _vm.SetCourseProgressionFloat(currentCourse.CurrentLessonId);
-        _vm.SetCourseProgressionPercentage(currentCourse.CurrentLessonId);
-        // set courses to carousel
-        CarV_Courses.ItemsSource = _vm.Courses;
         
-        //-> TODO: Get Course Progress to be displayed on course cards
+        currentCourse = _vm.CurrentCourse;
+        _vm.GetCourseProgressionFloat();
+        _vm.GetCourseProgressionPercentage();
+        _vm.SetCurrentCourseLessonProgress();
 
-        // example use app Dictionary I/O
-        //var pathToAppDictionary = FileSystem.AppDataDirectory;
-        //string filename = "xyz.json";
-        //var completeFilePath = Path.Combine(pathToAppDictionary, filename);
-        //string contentToWrite = "Test: Information";
-        //await File.WriteAllTextAsync(completeFilePath, contentToWrite);
+
+        CarV_Courses.ItemsSource = _vm.Courses;
     }
 
     private void SB_FilterCourses_TextChanged(object sender, TextChangedEventArgs e)

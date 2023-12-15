@@ -2,11 +2,94 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="daprota.Pages.IntroPage"
-             Title="IntroPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:ViewModel="clr-namespace:daprota.ViewModels"
+             xmlns:Model="clr-namespace:daprota.Models"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             Title=""
+             BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
+
+    <Grid 
+    RowDefinitions=".05*,.85*,.2*">
+        <!--region Info Bar-->
+        <Border
+           BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+           Grid.Row="0"
+           HorizontalOptions="Fill"
+           VerticalOptions="Fill"
+           StrokeThickness="0">
+            <Grid ColumnDefinitions=".3*,.6*,.3*">
+                <Image
+                Margin="10,5,5,5"
+                Aspect="AspectFit"
+                Source="back.png"
+                Grid.Column="0"
+                HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Tapped">
+                        </TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label 
+               Grid.Column="1"
+               Text="Course Details"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="{AppThemeBinding Light=White , Dark=White}"
+               FontSize="20">
+                </Label>
+                <Image 
+               Margin="5,5,10,5"
+               Grid.Column="2"
+               Source="settings.png"
+               HorizontalOptions="End"
+               VerticalOptions="Center">
+                </Image>
+            </Grid>
+        </Border>
+        <!--endregion Info Bar-->
+        <Border Grid.Row="1" Margin="20">
+                <CollectionView
+                    x:Name="CV_Chat"
+                    ItemsSource="{Binding Chat}"
+                        ItemsUpdatingScrollMode="KeepLastItemInView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Margin="20">
+                                <Grid
+                                    RowDefinitions=".2*,.8*" ColumnDefinitions=".5*,.5*">
+                                    <Label Background="Orange" Grid.Row="0" Grid.Column="0" Text="Name"></Label>
+                                    <Image HorizontalOptions="End" Background="Yellow" Grid.Row="0" Grid.Column="1" Source="dotnet_bot.png"></Image>
+                                    <Label Background="Blue" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding .}"></Label>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+        </Border>
+
+        <Border Grid.Row="2" BackgroundColor="Blue" Margin="20">
+            <Grid ColumnDefinitions=".8*, .2*">
+                <CollectionView
+                    ItemsSource="{Binding SubSetOfAnswers}"
+                    Grid.Column="0"
+                    SelectionMode="Single"
+                    SelectionChanged="CollectionView_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout Margin="15,0,0,0">
+                                <Label Text="Penner" LineBreakMode="WordWrap"></Label>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Frame Grid.Column="1" WidthRequest="50" HeightRequest="50" Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:VM_Intro}}, Path=AddChatMessageCommand}" CommandParameter="BLA"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <Image Background="Violet" Source="send.png" Aspect="AspectFit"></Image>
+                </Frame>
+            </Grid>
+        </Border>
+    </Grid>
 </ContentPage>

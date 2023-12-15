@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfM_UserResponse>
+	<M_UserResponse>
+		<UserResponseId>0</UserResponseId>
+		<ConversationId>0</ConversationId>
+		<PositiveResponse>Positive Response</PositiveResponse>
+		<NegativeResponse>Negative Response</NegativeResponse>
+	</M_UserResponse>
+</ArrayOfM_UserResponse>

@@ -64,7 +64,7 @@
             x:Name="l_Label" 
             Grid.Row="0"            
             Grid.Column="0"
-            Text="{Binding CurrentCourse.Title}"
+            Text="{Binding CurrentCourse.CurrentCourseTitle}"
             HorizontalOptions="Start"
             FontSize="15"
             TextColor="White">
@@ -160,12 +160,12 @@
             <!--region About Course-->
             <Border Grid.ColumnSpan="2" x:Name="CourseInfoView" Grid.Column="0" Grid.Row="1" StrokeThickness="0" IsVisible="true">
                 <VerticalStackLayout>
-                    <Label Text="{Binding CurrentCourse.Id, StringFormat='Course id: {0:F0}'}" FontSize="20"></Label>
-                    <Label Text="{Binding CurrentCourse.Title , StringFormat='Course Title: {0:F0}'}" FontSize="20"></Label>
-                    <Image Source="{Binding CurrentCourse.Image}"></Image>
-                    <Label Text="{Binding CurrentCourse.Description_long, StringFormat='Description_long: {0}'}"></Label>
-                    <Label Text="{Binding CurrentCourse.Description_short, StringFormat='Description_short: {0}'}"></Label>
-                    <Label Text="{Binding CurrentCourse.Category, StringFormat='Category: {0}'}"></Label>
+                    <Label Text="{Binding CourseDetails.Course.Id, StringFormat='Course id: {0:F0}'}" FontSize="20"></Label>
+                    <Label Text="{Binding CourseDetails.Course.Title, StringFormat='Course Title: {0:F0}'}" FontSize="20"></Label>
+                    <Image Source="{Binding CourseDetails.Course.Image}"></Image>
+                    <Label Text="{Binding CourseDetails.Course.Description_long, StringFormat='Description_long: {0}'}"></Label>
+                    <Label Text="{Binding CourseDetails.Course.Description_short, StringFormat='Description_short: {0}'}"></Label>
+                    <Label Text="{Binding CourseDetails.Course.Category, StringFormat='Category: {0}'}"></Label>
                 </VerticalStackLayout>
             </Border>
             <!--endregion About Course-->
