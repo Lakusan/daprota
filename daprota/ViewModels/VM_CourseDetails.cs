@@ -46,7 +46,21 @@ namespace daprota.ViewModels
             CurrentCourse = Data.CurrentCourse;
             CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
             GenerateLessonsList();
+            SetLessonsDone();
+        }
 
+        public void SetLessonsDone()
+        {
+            User = _data.GetUser();
+            int currentLessonId = User.ActiveLessionId;
+            foreach(M_Lesson lesson in lessons)
+            {
+                if(lesson.Id < currentLessonId)
+                {
+                    lesson.IsDone = true;
+                    lesson.StatusImage = "lesson_tick_true.png";
+                }
+            }
         }
 
         public void GenerateLessonsList()

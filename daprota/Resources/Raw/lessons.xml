@@ -6,6 +6,7 @@
 		<Description>Lesson 0 Description</Description>
 		<Image>book.png</Image>
 		<IsDone>false</IsDone>
+		<StatusImage>lesson_tick_false.png</StatusImage>
 	</M_Lesson>
 	<M_Lesson>
 		<Id>1</Id>
@@ -13,6 +14,7 @@
 		<Description>Lesson 1 Description</Description>
 		<Image>idea.png</Image>
 		<IsDone>false</IsDone>
+		<StatusImage>lesson_tick_false.png</StatusImage>
 	</M_Lesson>
 	<M_Lesson>
 		<Id>2</Id>
@@ -20,6 +22,7 @@
 		<Description>Lesson 2 Description</Description>
 		<Image>head.png</Image>
 		<IsDone>false</IsDone>
+		<StatusImage>lesson_tick_false.png</StatusImage>
 	</M_Lesson>
 	<M_Lesson>
 		<Id>3</Id>
@@ -27,5 +30,6 @@
 		<Description>Lesson 3 Description</Description>
 		<Image>quiz.png</Image>
 		<IsDone>false</IsDone>
+		<StatusImage>lesson_tick_false.png</StatusImage>
 	</M_Lesson>
 </ArrayOfM_Lesson>

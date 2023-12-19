@@ -22,7 +22,6 @@ public partial class CourseDetailsPage : ContentPage
     {
         base.OnAppearing();
         await _vm.LoadData();
-        //_user = _data.GetUser();
     }
 
     private void ButtonCourseInfo_Clicked(object sender, EventArgs e)

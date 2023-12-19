@@ -7,5 +7,6 @@
         public string Description { get; set; }
         public string Image { get; set; }
         public bool IsDone { get; set; }
+        public string StatusImage { get; set; }
     }
 }

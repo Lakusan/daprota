@@ -176,8 +176,7 @@
                                             <Label Text="Description" Margin="10,0,0,0" TextColor="White" FontSize="12" Grid.Row="0" Grid.Column="1"></Label>
                                             <Label Text="{Binding Description}" Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="12" TextColor="White"></Label>
                                             <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Aspect="AspectFit"></Image>
-                                            <Image Source="lesson_tick_true.png" Grid.RowSpan="3" Grid.Column="2" x:Name="img_lesson_tick_true" Aspect="AspectFit" IsVisible="false"></Image>
-                                            <Image Source="lesson_tick_false.png" Grid.RowSpan="3" Grid.Column="2" x:Name="img_lesson_tick_false" Aspect="AspectFit" IsVisible="true"></Image>
+                                            <Image Source="{Binding StatusImage}" Grid.RowSpan="3" Grid.Column="2" Aspect="AspectFit"></Image>
                                         </Grid>
                                     </Frame>
                                 </VerticalStackLayout>
