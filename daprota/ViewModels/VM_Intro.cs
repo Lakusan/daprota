@@ -7,9 +7,11 @@ using System.Collections.ObjectModel;
 
 namespace daprota.ViewModels
 {
-    
     public partial class VM_Intro : ObservableObject
     {
+        [ObservableProperty]
+        private int currentLessonId;
+
         [ObservableProperty]
         public M_CourseDetails courseDetails;
 
@@ -50,34 +52,20 @@ namespace daprota.ViewModels
         {
             _data = d;
             _data.GetUser();
+            CurrentLessonId = Data.SelectedLessonId;
             CurrentUser = Data.UserData;
-            //CourseDetails = new();
-            //CurrentCourse = new();
-            //UserResponses = new();
             Answer = new();
-            //ChatAnswer = new List<M_ChatAnswer>();
-            //string greeting = "Hello " + CurrentUser.Username;
-            //Chat = new ObservableCollection<M_ChatMsg>()
-            //{
-            //    new M_ChatMsg()
-            //    {
-            //        Name = "Bot",
-            //        IsPos = false,
-            //        Text = greeting,
-            //        Image= "bot.png"
-            //    }
-            //};
             Chat = new ObservableCollection<M_ChatMsg>();
             VM_Intro._msgId = 0;
             IsAnswerSelected = false;
         }
 
-    public async Task LoadData()
+        public async Task LoadData()
         {
             await _data.GetCurrentCourse();
             CurrentCourse = Data.CurrentCourse;
             CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
-            Conversation = await _data.GenerateAsyncConversation(CurrentCourse.CurrentCurseId);
+            Conversation = await _data.GenerateAsyncConversation(CurrentLessonId);
 
             await Task.Delay(500);
             NextBotMsg();

@@ -3,7 +3,7 @@
 	<M_Lesson>
 		<Id>0</Id>
 		<CourseId>0</CourseId>
-		<Description>Lesson 0 Description</Description>
+		<Description>Introduction to DSGVO</Description>
 		<Image>book.png</Image>
 		<IsDone>false</IsDone>
 		<StatusImage>lesson_tick_false.png</StatusImage>
@@ -11,7 +11,7 @@
 	<M_Lesson>
 		<Id>1</Id>
 		<CourseId>0</CourseId>
-		<Description>Lesson 1 Description</Description>
+		<Description>Advanced Concepts of DSGVO</Description>
 		<Image>idea.png</Image>
 		<IsDone>false</IsDone>
 		<StatusImage>lesson_tick_false.png</StatusImage>
@@ -19,7 +19,7 @@
 	<M_Lesson>
 		<Id>2</Id>
 		<CourseId>0</CourseId>
-		<Description>Lesson 2 Description</Description>
+		<Description>Practise Session</Description>
 		<Image>head.png</Image>
 		<IsDone>false</IsDone>
 		<StatusImage>lesson_tick_false.png</StatusImage>
@@ -27,7 +27,7 @@
 	<M_Lesson>
 		<Id>3</Id>
 		<CourseId>0</CourseId>
-		<Description>Lesson 3 Description</Description>
+		<Description>Quiz</Description>
 		<Image>quiz.png</Image>
 		<IsDone>false</IsDone>
 		<StatusImage>lesson_tick_false.png</StatusImage>

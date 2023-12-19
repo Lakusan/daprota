@@ -81,7 +81,6 @@ namespace daprota.ViewModels
                 }
             }
         }
-
         public void GenerateLessonsList()
         {
             Lessons = CourseDetails.Lessons.FindAll(l => l.Id <= User.ActiveLessionId );
@@ -99,18 +98,13 @@ namespace daprota.ViewModels
             switch (lesson.Id)
             {
                 case 0:
+                    Data.SelectedLessonId = lesson.Id;
                     await Shell.Current.GoToAsync($"{nameof(IntroPage)}");
-                    //    ,
-                    //new Dictionary<string, object>
-                    //{
-                    //    {"CurrentCourse", CurrentCourse },
-                    //    {"CurrentCourseProgressBar", CurrentCourseProgressBar },
-                    //    {"CurrentCourseProgressText", CurrentCourseProgressText },
-                    //    {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
-                    //}
                     break;
                 case 1:
                     // Chat2
+                    Data.SelectedLessonId = lesson.Id;
+                    await Shell.Current.GoToAsync($"{nameof(IntroPage)}");
                     break;
                 case 2:
                     // Conversation Q&A

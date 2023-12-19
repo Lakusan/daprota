@@ -174,7 +174,7 @@
                                         <Grid RowDefinitions=".2*,.6*,.2*" ColumnDefinitions=".2*, .6*, .2*">
                                             <Label Text="{Binding Id, StringFormat='Lesson #{0}'}" TextColor="White" Grid.Row="0" FontSize="12" HorizontalOptions="Center" Grid.Column="0" ></Label>
                                             <Label Text="Description" Margin="10,0,0,0" TextColor="White" FontSize="12" Grid.Row="0" Grid.Column="1"></Label>
-                                            <Label Text="{Binding Description}" Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="12" TextColor="White"></Label>
+                                            <Label Text="{Binding Description}" Margin="10,10,0,0" Grid.Row="1" Grid.Column="1" FontSize="12" TextColor="White"></Label>
                                             <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Aspect="AspectFit"></Image>
                                             <Image Source="{Binding StatusImage}" Grid.RowSpan="3" Grid.Column="2" Aspect="AspectFit"></Image>
                                         </Grid>

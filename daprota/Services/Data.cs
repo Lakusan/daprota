@@ -17,9 +17,11 @@ namespace daprota.Services
         private static List<M_BotMsg> BotMsgList { get; set; }
         private static List<M_UserResponse> UserResponseList { get; set; }
         private static Storage _storage { get; set; }
+        public static int SelectedLessonId {  get; set; }
         public Data(Storage s)
         {
             _storage = s;
+            SelectedLessonId = 0;
             //Data.CourseDetails = new List<M_CourseDetails>();
             //Data.Courses = new List<M_Course>();
             //Data.Questions = new List<M_Question>();
