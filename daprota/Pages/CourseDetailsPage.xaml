@@ -8,9 +8,7 @@
              Shell.FlyoutBehavior="Disabled"
              Title=""
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
-    <Grid 
-        RowDefinitions=".05*,.25*,.8*"
-        RowSpacing="25">
+    <Grid RowDefinitions=".058*,.25*,.8*" RowSpacing="25">
         <!--region Info Bar-->
         <Border
            BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
@@ -38,13 +36,6 @@
                    TextColor="{AppThemeBinding Light=White , Dark=White}"
                    FontSize="15">
                 </Label>
-                <!--<Image 
-                   Margin="5,5,10,5"
-                   Grid.Column="2"
-                   Source="settings.png"
-                   HorizontalOptions="End"
-                   VerticalOptions="Center">
-                </Image>-->
             </Grid>
         </Border>
         <!--endregion Info Bar-->

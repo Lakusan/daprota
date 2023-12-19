@@ -41,7 +41,7 @@ namespace daprota.ViewModels
         public async Task LoadData()
         {
             _data.GetUser();
-            user = Data.UserData;
+            User = Data.UserData;
             await _data.GetCurrentCourse();
             CurrentCourse = Data.CurrentCourse;
             CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
@@ -51,7 +51,7 @@ namespace daprota.ViewModels
 
         public void GenerateLessonsList()
         {
-            Lessons = CourseDetails.Lessons.FindAll(l => l.Id <= 10);
+            Lessons = CourseDetails.Lessons.FindAll(l => l.Id <= User.ActiveLessionId );
         }
 
         [RelayCommand]
@@ -77,10 +77,10 @@ namespace daprota.ViewModels
                     //}
                     break;
                 case 1:
-                    // Connect Words
+                    // Chat2
                     break;
                 case 2:
-                    // Conversation
+                    // Conversation Q&A
                     break;
                 case 3:
                     //Quiz

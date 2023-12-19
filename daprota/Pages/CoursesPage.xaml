@@ -18,22 +18,20 @@
            VerticalOptions="Fill"
            StrokeThickness="0">
             <Grid ColumnDefinitions=".3*,.6*,.3*">
-                <Label Grid.Row="0" Text="{Binding CurrentUser.Username}">
-                </Label>
            <Label 
-           Grid.Column="1"
-           Text="Courses"
-           VerticalOptions="Center"
-           HorizontalOptions="Center"
-           TextColor="{AppThemeBinding Light=White , Dark=White}"
-           FontSize="20">
+               Grid.Column="1"
+               Text="Courses"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="{AppThemeBinding Light=White , Dark=White}"
+               FontSize="15">
                 </Label>
                 <Image 
-           Margin="5,5,10,5"
-           Grid.Column="2"
-           Source="settings.png"
-           HorizontalOptions="End"
-           VerticalOptions="Center">
+                   Margin="5,5,10,5"
+                   Grid.Column="2"
+                   Source="settings.png"
+                   HorizontalOptions="End"
+                   VerticalOptions="Center">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Settings_Tapped"></TapGestureRecognizer>
                     </Image.GestureRecognizers>

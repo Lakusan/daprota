@@ -9,34 +9,33 @@
              Shell.NavBarIsVisible="False"
              Shell.FlyoutBehavior="Disabled"
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
-    <Grid RowDefinitions=".05*,.15*,.2*,.08*,.05*,.2*" RowSpacing="5">
+    <Grid RowDefinitions=".038*,.15*,.2*,.08*,.05*,.2*" RowSpacing="5">
         <!--region Info Bar-->
         <Border
-   BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
-   Grid.Row="0"
-   HorizontalOptions="Fill"
-   VerticalOptions="Fill"
-   StrokeThickness="0">
+           BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+           Grid.Row="0"
+           HorizontalOptions="Fill"
+           VerticalOptions="Fill"
+           StrokeThickness="0">
             <Grid ColumnDefinitions=".3*,.6*,.3*">
                 <Image
-            Margin="10,5,5,5"
-            Aspect="AspectFit"
-            Source="back.png"
-            Grid.Column="0"
-            HorizontalOptions="Start">
+                    Margin="10,5,5,5"
+                    Aspect="AspectFit"
+                    Source="back.png"
+                    Grid.Column="0"
+                    HorizontalOptions="Start">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Tapped">
-
                         </TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
                 <Label 
-           Grid.Column="1"
-           Text="Settings"
-           VerticalOptions="Center"
-           HorizontalOptions="Center"
-           TextColor="{AppThemeBinding Light=White , Dark=White}"
-           FontSize="20">
+                   Grid.Column="1"
+                   Text="Settings"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=White , Dark=White}"
+                   FontSize="15">
                 </Label>
             </Grid>
         </Border>
