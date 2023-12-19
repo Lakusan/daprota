@@ -3,7 +3,25 @@
 	<M_UserResponse>
 		<UserResponseId>0</UserResponseId>
 		<ConversationId>0</ConversationId>
-		<PositiveResponse>Positive Response</PositiveResponse>
-		<NegativeResponse>Negative Response</NegativeResponse>
+		<PositiveResponse>Yes, I have heard about it. It regulates personal Data in the EU</PositiveResponse>
+		<NegativeResponse>What is the Datenschutzgrundverordnung (DSGVO) or GDPR?</NegativeResponse>
+	</M_UserResponse>
+	<M_UserResponse>
+		<UserResponseId>1</UserResponseId>
+		<ConversationId>0</ConversationId>
+		<PositiveResponse>Good to know, but Why should I care about that at all?</PositiveResponse>
+		<NegativeResponse>Can you tell more about the key provisions introduced by GDPR?</NegativeResponse>
+	</M_UserResponse>
+	<M_UserResponse>
+		<UserResponseId>2</UserResponseId>
+		<ConversationId>0</ConversationId>
+		<PositiveResponse>How does GDPR help enhance trust?</PositiveResponse>
+		<NegativeResponse>Does GDPR impact only EU-based entities?</NegativeResponse>
+	</M_UserResponse>
+	<M_UserResponse>
+		<UserResponseId>3</UserResponseId>
+		<ConversationId>0</ConversationId>
+		<PositiveResponse>Great, thank you for all this valuable Information about the GDPR</PositiveResponse>
+		<NegativeResponse>Overall, why is being knowledgeable about GDPR crucial?</NegativeResponse>
 	</M_UserResponse>
 </ArrayOfM_UserResponse>

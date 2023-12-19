@@ -22,6 +22,11 @@ namespace daprota.ViewModels
 
         [ObservableProperty]
         public M_CourseDetails courseDetails;
+        [ObservableProperty]
+        public List<M_Lesson> lessons;
+
+        [ObservableProperty]
+        public M_User user;
         
         public string DebugText { get; set; }
 
@@ -35,9 +40,18 @@ namespace daprota.ViewModels
 
         public async Task LoadData()
         {
+            _data.GetUser();
+            user = Data.UserData;
             await _data.GetCurrentCourse();
             CurrentCourse = Data.CurrentCourse;
             CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
+            GenerateLessonsList();
+
+        }
+
+        public void GenerateLessonsList()
+        {
+            Lessons = CourseDetails.Lessons.FindAll(l => l.Id <= 10);
         }
 
         [RelayCommand]
@@ -52,14 +66,15 @@ namespace daprota.ViewModels
             switch (lesson.Id)
             {
                 case 0:
-                    await Shell.Current.GoToAsync($"{nameof(IntroPage)}",
-                    new Dictionary<string, object>
-                    {
-                        {"CurrentCourse", CurrentCourse },
-                        {"CurrentCourseProgressBar", CurrentCourseProgressBar },
-                        {"CurrentCourseProgressText", CurrentCourseProgressText },
-                        {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
-                    });
+                    await Shell.Current.GoToAsync($"{nameof(IntroPage)}");
+                    //    ,
+                    //new Dictionary<string, object>
+                    //{
+                    //    {"CurrentCourse", CurrentCourse },
+                    //    {"CurrentCourseProgressBar", CurrentCourseProgressBar },
+                    //    {"CurrentCourseProgressText", CurrentCourseProgressText },
+                    //    {"CurrentCourseLessonProgress", CurrentCourseLessonProgress },
+                    //}
                     break;
                 case 1:
                     // Connect Words

@@ -1,17 +1,15 @@
-using daprota.Models;
 using daprota.ViewModels;
 
 namespace daprota.Pages;
 
-public partial class ChangeUsernamePage : ContentPage
+public partial class SettingsPage : ContentPage
 {
     private VM_Settings _vm;
     private string tmpUsername;
     private bool resetProgress = false;
-    public M_User currentUser { get; set; }
+    private string username = "";
 
-
-    public ChangeUsernamePage(VM_Settings vm)
+    public SettingsPage(VM_Settings vm)
     {
         InitializeComponent();
         BindingContext = vm;
@@ -21,34 +19,35 @@ public partial class ChangeUsernamePage : ContentPage
     {
         base.OnAppearing();
         // set current username
-        currentUser = _vm.GetCurrentUserProfile();
+        username = "Hello " + _vm.GetCurrentUserProfile().Username;
+        l_username.Text= username;
     }
 
     private void e_username_TextChanged(object sender, TextChangedEventArgs e)
     {
-        // store new User Name in variable every time user changes something
         tmpUsername = e.NewTextValue;
     }
 
     private async void BtnChangeUsernameClicked(object sender, EventArgs e)
     {
         _vm.setNewUsername(tmpUsername);
-        currentUser = _vm.GetCurrentUserProfile();
+        await DisplayAlert("Username Changed to: ",tmpUsername, "Ok");
+        username = "Hello " + _vm.GetCurrentUserProfile().Username;
+        l_username.Text = username;
     }
 
     private async void BtnResetClicked(object sender, EventArgs e)
     {
-        bool userChoice = await DisplayAlert("Alert", "Reset User Profile", "Proceed", "Cancel");
-        resetProgress = userChoice;
+        resetProgress = await DisplayAlert("Caution!", "Reset User Profile", "Proceed", "Cancel");
     }
 
     protected override void OnDisappearing()
     {
         base.OnDisappearing();
-        e_username.Text="";
         if (resetProgress) { 
             _vm.ResetUserProfile();
         }
+        resetProgress = false;
     }
     private async void Back_Tapped(object sender, TappedEventArgs e)
     {

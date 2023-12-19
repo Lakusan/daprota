@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<ArrayOfM_User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<M_User>
+<M_User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<UserId>1</UserId>
 		<Username>Karl</Username>
-		<LastActivityDate>2023-11-23T08:00:00Z</LastActivityDate>
 		<FirstStart>true</FirstStart>
 		<ActiveCourseId>0</ActiveCourseId>
 		<ActiveLessonId>0</ActiveLessonId>
-	</M_User>
-</ArrayOfM_User>
+</M_User>

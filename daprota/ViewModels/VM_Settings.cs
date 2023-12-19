@@ -10,32 +10,36 @@ namespace daprota.ViewModels
     {
 
         private Storage _storage;
-        public M_User currentUser {  get; set; }
+        private Data _data;
+
+        public M_User CurrentUser { get; set; }
+        [ObservableProperty]
+        public string userName;
         
-        public VM_Settings(Storage s) { 
+        public VM_Settings(Storage s, Data d) { 
             _storage = s;
-            currentUser = App._userData;
+            _data = d;
+            CurrentUser = new();
         }
 
         public M_User GetCurrentUserProfile()
         {
-            return App._userData;
+            return _data.GetUser();
         }
 
         public void setNewUsername(string username)
         {
-            // set new username in user model obj
-            App._userData.Username= username;
-            // store new User object in Prefs
-            _storage.SetUserDataToPrefs(GetCurrentUserProfile());
+            CurrentUser = _data.SetUserName(username);
+            _storage.SetUserDataToPrefs(CurrentUser);
         }
 
         public void ResetUserProfile()
         {
-            // set user profile to default -> Reset user progress
-            _storage.SetUserDataToPrefs<M_User>(App._defaulUserProfile);
-            App._userData = App._defaulUserProfile;
-            currentUser = App._userData;
+            M_User defaultUser = Data.DefaultUserProfile;
+            _storage.SetUserDataToPrefs<M_User>(defaultUser);
+
+            Data.UserData = null;
+            CurrentUser = _data.GetUser();
         }
 
         [RelayCommand]

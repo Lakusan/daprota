@@ -1,13 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<ArrayOfM_User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<M_User>
-		<UserId>1</UserId>
+<M_User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<UserId>0</UserId>
 		<Username>Username</Username>
 		<LastActivityDate>2023-11-23T08:00:00Z</LastActivityDate>
 		<FirstStart>true</FirstStart>
-		<CourseProgression>
-			<CourseId>0</CourseId>
-			<CurrentLessonId>0</CurrentLessonId>
-		</CourseProgression>
-	</M_User>
-</ArrayOfM_User>
+		<ActiveCourseId>0</ActiveCourseId>
+		<ActiveLessionId>0</ActiveLessionId>
+</M_User>

@@ -4,13 +4,56 @@
              x:Class="daprota.Pages.IntroPage"
              xmlns:ViewModel="clr-namespace:daprota.ViewModels"
              xmlns:Model="clr-namespace:daprota.Models"
+             xmlns:app="clr-namespace:daprota.Services"
              Shell.NavBarIsVisible="False"
              Shell.FlyoutBehavior="Disabled"
              Title=""
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="ChatMsgBotTemplate" x:DataType="Model:M_ChatMsg">
+            <Border
+                Margin="10"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                StrokeShape="RoundRectangle 8,8,8,8"
+                StrokeThickness="0"
+                Background="White">
+                <VerticalStackLayout Margin="5">
+                    <Grid RowDefinitions=".2*,.8*" ColumnDefinitions=".25*,.25*,.25*,.25*">
+                        <Label TextColor="Black" HorizontalOptions="Start" VerticalOptions="End" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Name}"></Label>
+                        <Image TranslationX="30" Aspect="AspectFit"  Grid.Row="0" Grid.Column="4" Source="{Binding Image}"></Image>
+                    </Grid>
+                    <Label Margin="0,10,0,0" TextColor="Black" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Text}"></Label>
+                </VerticalStackLayout>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ChatMsgUserTemplate">
+            <Border
+                 Margin="10"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Fill"
+                 StrokeShape="RoundRectangle 8,8,8,8"
+                 StrokeThickness="0"
+                 Background="{AppThemeBinding Light=#3498DB, Dark=#2980B9}">
+                <VerticalStackLayout Margin="5">
+                    <Grid RowDefinitions=".2*,.8*" ColumnDefinitions=".25*,.25*,.25*,.25*">
+                            <Label TextColor="White" HorizontalOptions="Start" VerticalOptions="End" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Name}"></Label>
+                            <Image TranslationX="-30" Aspect="AspectFit"  Grid.Row="0" Grid.Column="0" Source="{Binding Image}"></Image>
+                    </Grid>
+                            <Label Margin="0,10,0,0" TextColor="White" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Text}"></Label>
+                </VerticalStackLayout>
+            </Border>
+        </DataTemplate>
+
+        <app:ChatTemplateSelector x:Key="ChatTemplateSelector"
+                                  ChatMsgBotTemplate="{StaticResource ChatMsgBotTemplate}"
+                                  ChatMsgUserTemplate="{StaticResource ChatMsgUserTemplate}">
+        </app:ChatTemplateSelector>
+    </ContentPage.Resources>
 
     <Grid 
-    RowDefinitions=".05*,.85*,.2*">
+    RowDefinitions=".05*,.7*,.3*">
         <!--region Info Bar-->
         <Border
            BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
@@ -32,64 +75,66 @@
                 </Image>
                 <Label 
                Grid.Column="1"
-               Text="Course Details"
+               Text="Introduction to GDPR"
                VerticalOptions="Center"
                HorizontalOptions="Center"
                TextColor="{AppThemeBinding Light=White , Dark=White}"
-               FontSize="20">
+               FontSize="15">
                 </Label>
-                <Image 
+                <!--<Image 
                Margin="5,5,10,5"
                Grid.Column="2"
                Source="settings.png"
                HorizontalOptions="End"
                VerticalOptions="Center">
-                </Image>
+                </Image>-->
             </Grid>
         </Border>
         <!--endregion Info Bar-->
-        <Border Grid.Row="1" Margin="20">
+        <!--#region Chat-->
+        <Border Grid.Row="1" Margin="20" StrokeShape="RoundRectangle 8,8,8,8">
                 <CollectionView
-                    x:Name="CV_Chat"
                     ItemsSource="{Binding Chat}"
-                        ItemsUpdatingScrollMode="KeepLastItemInView">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <VerticalStackLayout Margin="20">
-                                <Grid
-                                    RowDefinitions=".2*,.8*" ColumnDefinitions=".5*,.5*">
-                                    <Label Background="Orange" Grid.Row="0" Grid.Column="0" Text="Name"></Label>
-                                    <Image HorizontalOptions="End" Background="Yellow" Grid.Row="0" Grid.Column="1" Source="dotnet_bot.png"></Image>
-                                    <Label Background="Blue" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding .}"></Label>
-                                </Grid>
-                            </VerticalStackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
+                        ItemsUpdatingScrollMode="KeepLastItemInView"
+                    ItemTemplate="{StaticResource ChatTemplateSelector}">
                 </CollectionView>
         </Border>
-
-        <Border Grid.Row="2" BackgroundColor="Blue" Margin="20">
+        <!--#endregion Chat-->
+        <!--#region AnswerBox-->
+        <Border Grid.Row="2" BackgroundColor="{AppThemeBinding Light=#3498DB, Dark=#2980B9}" Margin="20" StrokeShape="RoundRectangle 8,8,8,8">
             <Grid ColumnDefinitions=".8*, .2*">
                 <CollectionView
-                    ItemsSource="{Binding SubSetOfAnswers}"
+                    x:Name="CV_Answer"
+                    ItemsSource="{Binding Answer}"
                     Grid.Column="0"
                     SelectionMode="Single"
                     SelectionChanged="CollectionView_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <HorizontalStackLayout Margin="15,0,0,0">
-                                <Label Text="Penner" LineBreakMode="WordWrap"></Label>
-                            </HorizontalStackLayout>
+                                <VerticalStackLayout Grid.Column="0" WidthRequest="270" HeightRequest="78" Margin="17,10,0,0">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal"></VisualState>
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="SlateBlue"></Setter>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Label Padding="1" Text="{Binding Text}" LineBreakMode="WordWrap" TextColor="White"></Label>
+                            </VerticalStackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 <Frame Grid.Column="1" WidthRequest="50" HeightRequest="50" Padding="0">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:VM_Intro}}, Path=AddChatMessageCommand}" CommandParameter="BLA"></TapGestureRecognizer>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:VM_Intro}}, Path=AddChatMessageCommand}"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>
-                    <Image Background="Violet" Source="send.png" Aspect="AspectFit"></Image>
+                    <Image Background="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}" Source="send.png" Aspect="AspectFit"></Image>
                 </Frame>
             </Grid>
         </Border>
     </Grid>
+    <!--#endregion Answerbox-->
 </ContentPage>

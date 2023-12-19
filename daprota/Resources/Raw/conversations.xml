@@ -3,4 +3,10 @@
 	<M_Conversation>
 		<ConversationId>0</ConversationId>
 	</M_Conversation>
+	<M_Conversation>
+		<ConversationId>1</ConversationId>
+	</M_Conversation>
+	<M_Conversation>
+		<ConversationId>2</ConversationId>
+	</M_Conversation>
 </ArrayOfM_Conversation>

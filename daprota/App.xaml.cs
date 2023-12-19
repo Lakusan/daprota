@@ -1,5 +1,6 @@
 ﻿using daprota.Models;
 using daprota.Services;
+using System.ComponentModel;
 using System.Text.Json;
 
 #if WINDOWS
@@ -13,42 +14,35 @@ namespace daprota
 {
     public partial class App : Application
     {
-        public static M_User _userData;
+        private Storage _storage;
+        private Data _data;
 
-        public static M_User _defaulUserProfile;
-        
-        // CONSTANTS -> Maybe obsolet
-        public static int MAX_LESSONS_PER_COURSE = 4;
-
-        public App()
+        public App(Storage s, Data d)
         {
             InitializeComponent();
-            // Set default User Profile
-            _defaulUserProfile = new M_User()
+            _storage = s;
+            _data = d;
+
+            M_User defaultUser = new M_User()
             {
-                UserId = 0,
+                UserId = 1,
                 Username = "Username",
-                LastActivityDate = DateOnly.FromDateTime(DateTime.Now),
                 FirstStart = true,
                 ActiveCourseId = 0,
                 ActiveLessionId = 0,
-            };
 
-            // Get User Data from Prefs on app start
-            string tmp = Preferences.Default.Get<string>("Settings", null);
-            // if key is !null in prefs, load User Profile in M_User
-            if (tmp != null)
+            };
+            Data.DefaultUserProfile = defaultUser;
+            // Check if User is in Prefs
+            bool hasSettings = Preferences.Default.ContainsKey("Settings", null);
+            if (!hasSettings)
             {
-                _userData = JsonSerializer.Deserialize<M_User>(tmp);
+                _data.SetUserData(defaultUser);
+                _data.GetUser();
             }
             else
             {
-                // if key is null
-                // create default User Profile as M_User for runtime
-                _userData = _defaulUserProfile;
-                // Set default user profile in Prefs with key "Settings"
-                var jsonString = JsonSerializer.Serialize(_userData);
-                Preferences.Default.Set("Settings", jsonString);
+                _data.GetUser();
             }
 
             Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
@@ -63,7 +57,6 @@ namespace daprota
                 appWindow.Resize(new SizeInt32(450, 850));
 #endif  
             });
-            // initialized courses
             MainPage = new AppShell();
         }
     }

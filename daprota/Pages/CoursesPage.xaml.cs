@@ -11,7 +11,6 @@ public partial class CoursesPage : ContentPage
 {
     public List<M_Course> Courses { get; set; }
     private VM_Courses _vm;
-    public M_User currentUser { get; set; }
     public M_CurrentCourse currentCourse { get; set; }
 
     public CoursesPage(VM_Courses vm)
@@ -20,14 +19,11 @@ public partial class CoursesPage : ContentPage
         BindingContext = vm;
         _vm = vm;
         //changeSearchBarIconColor();
-        // maybe obsolet
-        currentUser = _vm.GetCurrentUserProfile();
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        currentUser = _vm.GetCurrentUserProfile();
 
         await _vm.LoadDataAsync();
         

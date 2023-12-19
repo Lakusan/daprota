@@ -4,7 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:daprota.Pages"
-    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
     Title="daprota">
 
     <ShellContent
@@ -23,9 +24,9 @@
         Title="Questions(Test)"/>
 
     <ShellContent
-         ContentTemplate="{DataTemplate local:ChangeUsernamePage}"
-         Route="Pages.ChangeUsernamePage"
-         Title="Change Username Page"/>
+         ContentTemplate="{DataTemplate local:SettingsPage}"
+         Route="Pages.SettingsPage"
+         Title="Settings"/>
     
     <ShellContent
         ContentTemplate="{DataTemplate local:Debug}"

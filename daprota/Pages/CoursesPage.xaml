@@ -12,12 +12,14 @@
     <Grid RowDefinitions=".05*,.2*,.4*,.05*,.2*" RowSpacing="20">
         <!--region Info Bar-->
         <Border
-   BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
-   Grid.Row="0"
-   HorizontalOptions="Fill"
-   VerticalOptions="Fill"
-   StrokeThickness="0">
+           BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
+           Grid.Row="0"
+           HorizontalOptions="Fill"
+           VerticalOptions="Fill"
+           StrokeThickness="0">
             <Grid ColumnDefinitions=".3*,.6*,.3*">
+                <Label Grid.Row="0" Text="{Binding CurrentUser.Username}">
+                </Label>
            <Label 
            Grid.Column="1"
            Text="Courses"
@@ -41,7 +43,7 @@
         <!--endregion Info Bar-->
         <!--region Current Course View-->
         <Border
-            Margin="5"
+            Margin="20,10,20,0"
             Grid.Row="1"
             HorizontalOptions="Fill"
             VerticalOptions="Fill"
@@ -102,7 +104,7 @@
                     Grid.Row="3" 
                     Grid.Column="0" 
                     Text="{Binding CurrentCourseLessonProgress, StringFormat='{0}/4 Lessons'}" 
-                    FontSize="20" 
+                    FontSize="15" 
                     TextColor="White" 
                     HorizontalOptions="Center" 
                     VerticalOptions="Start">
@@ -118,8 +120,8 @@
                 <Label 
                     Grid.Row="3" 
                     Grid.Column="3"
-                    Text="Level: Intro"
-                    FontSize="20" 
+                    Text="{Binding CurrentCourse.Category, StringFormat='Level: {0}'}"
+                    FontSize="15" 
                     TextColor="White" 
                     HorizontalOptions="Center" 
                     VerticalOptions="Start">
@@ -132,19 +134,16 @@
             Grid.Row="2"
             Margin="5,25"
             BackgroundColor="White"
-            Padding="10"
+            Padding="20"
             StrokeShape="RoundRectangle 8,8,8,8"
             StrokeThickness="0">
-            <ScrollView>
                 <Label 
                     x:Name="l_InfoBox"              
                     LineBreakMode="WordWrap" 
-                    Text="The InfoBar positioned at the top indicates the active page and your Name. &#10;&#10; Below, the Current Course Card showcases your progress within your ongoing course. Tap on it to proceed further in this course.In the lower half of the screen, you can find all available courses. &#10;&#10;The Filter bar assists in discovering interesting courses. Below that, you can swipe through the courses. Tap on a specific course to access more detailed information. The greyed-out courses are available once you have completed the corresponding preceding course."
+                    Text="The InfoBar positioned at the top of this page indicates the current page. &#10;&#10; Below the Infobar, the Current Course Card showcases your progress within your ongoing course. Tap on it to proceed further in this course.&#10;&#10;The Filter bar assists in discovering interesting accessable courses. Tap on a specific course to access more detailed information."
                     TextColor="Black" 
-                    FontSize="Medium">
+                    FontSize="15">
                 </Label>
-            </ScrollView>
-
         </Border>
         <!--endregion Infobox-->
         <!--region Filter Courses Bar-->
@@ -194,16 +193,18 @@
                             <Border.Shadow>
                                 <Shadow Brush="DarkGoldenrod" Opacity=".3" Radius="100" Offset="0,0"></Shadow>
                             </Border.Shadow>
-                            <Grid RowDefinitions=".5*,.5*" ColumnDefinitions=".5*,.5*">
+                            <Grid RowDefinitions=".5*,.5*" ColumnDefinitions=".7*,.3*">
                                 <Border Grid.RowSpan="3" Grid.Column="1" StrokeThickness="0">
                                     <Image 
                                         Source="{Binding Image}"
-                                        Aspect="AspectFit">
+                                        Aspect="AspectFit"
+                                        Margin="0,0,5,0">
                                     </Image>
                                 </Border>
-                                <VerticalStackLayout Grid.RowSpan="3" Margin="10">
-                                    <Label VerticalOptions="Start" Text="{Binding Title}" TextColor="White" FontSize="Medium"></Label>
-                                    <Label  Text="{Binding Description_short}" TextColor="White" FontSize="Small"></Label>
+                                <VerticalStackLayout Grid.RowSpan="3" Margin="10" Spacing="20">
+                                    <Label VerticalOptions="Start" Text="{Binding Title}" TextColor="White" FontSize="15"></Label>
+                                    <Label Text="{Binding Description_short}" TextColor="White" FontSize="12"></Label>
+                                    <Label Text="{Binding Category}" TextColor="White" FontSize="12"></Label>
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>

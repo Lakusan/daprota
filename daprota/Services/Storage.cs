@@ -6,12 +6,9 @@ namespace daprota.Services
 {
     public class Storage
     {
-        public static List<M_Question> questions { get; set; }
-
         public string GetUserDataFromPrefs()
         {
-            string s = Preferences.Default.Get<string>("Settings", null);
-            return s;
+            return Preferences.Default.Get<string>("Settings", null);
         }
 
         public void SetUserDataToPrefs<T>(T obj)

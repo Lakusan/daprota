@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Model="clr-namespace:daprota.Models"
              xmlns:ViewModel="clr-namespace:daprota.ViewModels"
-             x:Class="daprota.Pages.ChangeUsernamePage"
+             x:Class="daprota.Pages.SettingsPage"
              x:DataType="ViewModel:VM_Settings"
              Title=""
              Shell.NavBarIsVisible="False"
@@ -65,6 +65,7 @@
                        TextColor="{AppThemeBinding Light=#333333, Dark=#ffffff}" 
                        HorizontalOptions="Center">
                 </Label>
+                <Label x:Name="l_username" HorizontalOptions="Center"></Label>
             </VerticalStackLayout>
         </Border>
 <!--#endregion Logo-->

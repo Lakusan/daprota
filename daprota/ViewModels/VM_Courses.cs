@@ -36,27 +36,12 @@ namespace daprota.ViewModels
         {
             _storage = s;
             _data = d;
-            currentUser = GetCurrentUserProfile();
+            CurrentUser = _data.GetUser();
         }
         public async Task GetCurrentCourseData()
         {
             await _data.GetCurrentCourse();
             CurrentCourse = Data.CurrentCourse;
-            
-            //try
-            //{
-            //    CurrentCourse = new M_CurrentCourse()
-            //    {
-            //        CurrentCurseId = CurrentUser.ActiveCourseId,
-            //        CurrentLessonId = CurrentUser.ActiveLessionId,
-            //        CurrentCourseTitle = GetCourseTitleFromCourseId(CurrentUser.ActiveCourseId),
-            //        Image = GetCourseImageFromCourseId(CurrentUser.ActiveCourseId),
-            //    };
-            //}
-            //catch (Exception ex)
-            //{
-            //    await Shell.Current.DisplayAlert("ERROR ", $"DATA: {CurrentCourse}\n {ex}", "ok");
-            //}
         }
         public string GetCourseTitleFromCourseId(int courseId)
         {
@@ -70,7 +55,6 @@ namespace daprota.ViewModels
                 return s;
             }
             return "Error: not found";
-
         }
         public string GetCourseImageFromCourseId(int courseId)
         {
@@ -100,7 +84,7 @@ namespace daprota.ViewModels
             User = _data.GetUser();
             if (User.ActiveLessionId>=1)
             {
-                CurrentCourseLessonProgress = User.ActiveLessionId - 1;
+                CurrentCourseLessonProgress = User.ActiveLessionId;
             }
             else
             {
@@ -110,13 +94,14 @@ namespace daprota.ViewModels
         // User Profile 
         public M_User GetCurrentUserProfile()
         {
-            return App._userData;
+            return _data.GetUser();
         }
         // Data
         public async Task LoadDataAsync()
         {
+            // filter available courses
+            CurrentUser = GetCurrentUserProfile();
             Courses = await _data.GetCourses();
-            //Courses = await _storage.ReadEmbeddedXML<List<M_Course>>("courses.xml");
             await GetCurrentCourseData();
         }
         // Interactions
@@ -162,7 +147,7 @@ namespace daprota.ViewModels
         [RelayCommand]
         public async Task SettingsTapped()
         {
-            await Shell.Current.GoToAsync($"{nameof(ChangeUsernamePage)}");
+            await Shell.Current.GoToAsync($"{nameof(SettingsPage)}");
         }
     }
 }

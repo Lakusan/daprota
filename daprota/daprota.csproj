@@ -59,6 +59,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\back.png" />
 	  <None Remove="Resources\Images\book.png" />
+	  <None Remove="Resources\Images\bot.png" />
 	  <None Remove="Resources\Images\daprota_appicon.png" />
 	  <None Remove="Resources\Images\head.png" />
 	  <None Remove="Resources\Images\idea.png" />
@@ -67,6 +68,7 @@
 	  <None Remove="Resources\Images\quiz.png" />
 	  <None Remove="Resources\Images\send.png" />
 	  <None Remove="Resources\Images\settings.png" />
+	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Raw\answers.xml" />
 	  <None Remove="Resources\Raw\botmsg.xml" />
 	  <None Remove="Resources\Raw\conversations.xml" />
@@ -74,8 +76,8 @@
 	  <None Remove="Resources\Raw\defaultUserProfile.xml" />
 	  <None Remove="Resources\Raw\lessons.xml" />
 	  <None Remove="Resources\Raw\questions.xml" />
+	  <None Remove="Resources\Raw\user.xml" />
 	  <None Remove="Resources\Raw\userresponses.xml" />
-	  <None Remove="Resources\Raw\users.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -86,6 +88,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\SettingsPage.xaml.cs">
+	    <DependentUpon>SettingsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\CourseDetailsPage.xaml.cs">
 	    <DependentUpon>CourseDetailsPage.xaml</DependentUpon>
 	  </Compile>
@@ -101,7 +106,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\ChangeUsernamePage.xaml">
+	  <MauiXaml Update="Pages\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\CourseDetailsPage.xaml">
@@ -121,6 +126,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptiondaprotaHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptiondaprotaHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptiondaprotaHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

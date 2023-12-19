@@ -9,7 +9,8 @@
              Title=""
              BackgroundColor="{AppThemeBinding Light=#F5F6FA, Dark=#2C3E50}">
     <Grid 
-        RowDefinitions=".05*,.2*,.85*">
+        RowDefinitions=".05*,.25*,.8*"
+        RowSpacing="25">
         <!--region Info Bar-->
         <Border
            BackgroundColor="{AppThemeBinding Light=SlateBlue, Dark=#2C3E50}"
@@ -31,28 +32,30 @@
                 </Image>
                 <Label 
                    Grid.Column="1"
-                   Text="Course Details"
+                   Text="{Binding CurrentCourse.Title}"
                    VerticalOptions="Center"
                    HorizontalOptions="Center"
                    TextColor="{AppThemeBinding Light=White , Dark=White}"
-                   FontSize="20">
+                   FontSize="15">
                 </Label>
-                <Image 
+                <!--<Image 
                    Margin="5,5,10,5"
                    Grid.Column="2"
                    Source="settings.png"
                    HorizontalOptions="End"
                    VerticalOptions="Center">
-                </Image>
+                </Image>-->
             </Grid>
         </Border>
         <!--endregion Info Bar-->
         <!--region Current Course View-->
         <Border
-            Margin="5"
+            Margin="20,10,20,0"
             Grid.Row="1"
             HorizontalOptions="Fill"
             VerticalOptions="Fill"
+            WidthRequest="350"
+            HeightRequest="150"
             StrokeShape="RoundRectangle 8,8,8,8"
             Background="{AppThemeBinding Light=#3498DB, Dark=#2980B9}"
             StrokeThickness="0">
@@ -61,71 +64,72 @@
                 RowDefinitions=".2*,.6*,.2*"
                 ColumnDefinitions=".5*,.5*">
                 <Label 
-            x:Name="l_Label" 
-            Grid.Row="0"            
-            Grid.Column="0"
-            Text="{Binding CurrentCourse.CurrentCourseTitle}"
-            HorizontalOptions="Start"
-            FontSize="15"
-            TextColor="White">
+                    x:Name="l_Label" 
+                    Grid.Row="0"            
+                    Grid.Column="0"
+                    Text="{Binding CurrentCourse.CurrentCourseTitle}"
+                    HorizontalOptions="Start"
+                    FontSize="15"
+                    TextColor="White">
                 </Label>
                 <Label 
-            Grid.Row="1"
-            FontSize="10" 
-            TextColor="White" 
-            VerticalOptions="Start" 
-            Margin="5,10,0,0" Text="Progress"></Label>
+                    Grid.Row="1"
+                    FontSize="10" 
+                    TextColor="White" 
+                    VerticalOptions="Start" 
+                    Margin="0,8,0,0" Text="Progress">
+                </Label>
                 <Border 
-            Grid.Row="1" 
-            Grid.Column="0" 
-            StrokeShape="RoundRectangle 8,8,8,8"
-            WidthRequest="180"
-            HeightRequest="20">
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    StrokeShape="RoundRectangle 8,8,8,8"
+                    WidthRequest="180"
+                    HeightRequest="20">
                     <ProgressBar 
-                    Grid.Row="2"
-                    Progress="{Binding CurrentCourseProgressBar}" 
-                    ProgressColor="{AppThemeBinding Light=#9B59B6 , Dark=White}"
-                    BackgroundColor="White"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    HeightRequest="3"
-                    ScaleY="10">
+                        Grid.Row="2"
+                        Progress="{Binding CurrentCourseProgressBar}" 
+                        ProgressColor="{AppThemeBinding Light=#9B59B6 , Dark=White}"
+                        BackgroundColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="3"
+                        ScaleY="10">
                     </ProgressBar>
                 </Border>
                 <Label 
-            Grid.Row="1" 
-            FontSize="10" 
-            TextColor="White"
-            VerticalOptions="End"
-            HorizontalOptions="Center"
-            Margin="0,0,0,10"
-            Text="{Binding CurrentCourseProgressText, StringFormat='{0}%'}">
+                    Grid.Row="1" 
+                    FontSize="10" 
+                    TextColor="White"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,10"
+                    Text="{Binding CurrentCourseProgressText, StringFormat='{0}%'}">
                 </Label>
                 <Label 
-            Grid.Row="3" 
-            Grid.Column="0" 
-            Text="{Binding CurrentCourseLessonProgress, StringFormat='{0}/4 Lessons'}" 
-            FontSize="20" 
-            TextColor="White" 
-            HorizontalOptions="Center" 
-            VerticalOptions="Start">
+                    Grid.Row="3" 
+                    Grid.Column="0" 
+                    Text="{Binding CurrentCourseLessonProgress, StringFormat='{0}/4 Lessons'}" 
+                    FontSize="15" 
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start">
                 </Label>
                 <Image 
-            Grid.Row="0"
-            Grid.RowSpan="2" 
-            Grid.Column="1" 
-            HorizontalOptions="Center" 
-            VerticalOptions="Center" 
-            Source="{Binding CurrentCourse.Image}">
+                    Grid.Row="0"
+                    Grid.RowSpan="2" 
+                    Grid.Column="1" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Source="{Binding CurrentCourse.Image}">
                 </Image>
                 <Label 
-            Grid.Row="3" 
-            Grid.Column="3"
-            Text="Level: Intro"
-            FontSize="20" 
-            TextColor="White" 
-            HorizontalOptions="Center" 
-            VerticalOptions="Start">
+                    Grid.Row="3" 
+                    Grid.Column="3"
+                    Text="{Binding CurrentCourse.Category, StringFormat='Level: {0}'}"
+                    FontSize="15" 
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Start">
                 </Label>
             </Grid>
         </Border>
@@ -158,43 +162,37 @@
             </Border>
             <!--endregion Content Controls-->
             <!--region About Course-->
-            <Border Grid.ColumnSpan="2" x:Name="CourseInfoView" Grid.Column="0" Grid.Row="1" StrokeThickness="0" IsVisible="true">
-                <VerticalStackLayout>
-                    <Label Text="{Binding CourseDetails.Course.Id, StringFormat='Course id: {0:F0}'}" FontSize="20"></Label>
-                    <Label Text="{Binding CourseDetails.Course.Title, StringFormat='Course Title: {0:F0}'}" FontSize="20"></Label>
-                    <Image Source="{Binding CourseDetails.Course.Image}"></Image>
-                    <Label Text="{Binding CourseDetails.Course.Description_long, StringFormat='Description_long: {0}'}"></Label>
-                    <Label Text="{Binding CourseDetails.Course.Description_short, StringFormat='Description_short: {0}'}"></Label>
-                    <Label Text="{Binding CourseDetails.Course.Category, StringFormat='Category: {0}'}"></Label>
+            <Border Grid.ColumnSpan="2" x:Name="CourseInfoView" Grid.Column="0" Grid.Row="1"  IsVisible="true" StrokeShape="RoundRectangle 0,0,8,8">
+                <VerticalStackLayout Margin="20" Spacing="20">
+                    <Label Text="{Binding CourseDetails.Course.Title}" FontSize="20"></Label>
+                    <Label Text="{Binding CourseDetails.Course.Description_short}"></Label>
+                    <Label Text="{Binding CourseDetails.Course.Description_long}"></Label>
                 </VerticalStackLayout>
             </Border>
             <!--endregion About Course-->
             <!--region Lessons-->
             <Border Grid.ColumnSpan="2" x:Name="LessonsView" Grid.Row="1" Grid.Column="0" IsVisible="false" StrokeShape="RoundRectangle 0,0,8,8">
-         
-                <ScrollView>
-                    <CollectionView ItemsSource="{Binding CourseDetails.Lessons}">
+                    <CollectionView ItemsSource="{Binding Lessons}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <VerticalStackLayout Margin="12">
-                                    <Frame HeightRequest="100" WidthRequest="300" Background="{AppThemeBinding Light=#3498DB, Dark=#2980B9}" Padding="5">
+                                <VerticalStackLayout Margin="0,20,0,10">
+                                    <Frame HeightRequest="80" WidthRequest="300" Background="{AppThemeBinding Light=#3498DB, Dark=#2980B9}" Padding="5">
                                         <Frame.GestureRecognizers>
                                             <TapGestureRecognizer NumberOfTapsRequired="1"  Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:VM_CourseDetails}}, Path=GoToLessonCommand}" CommandParameter="{Binding .}"></TapGestureRecognizer>
                                         </Frame.GestureRecognizers>
-                                            <Grid RowDefinitions=".2*,.6*,.2*" ColumnDefinitions=".2*, .6*, .2*">
-                                                <Label Text="{Binding Id, StringFormat='Lesson #{0}'}" TextColor="White" Grid.Row="0" FontSize="12" HorizontalOptions="Center" Grid.Column="0" ></Label>
-                                                <Label Text="Description" Margin="10,0,0,0" TextColor="White" FontSize="12" Grid.Row="0" Grid.Column="1"></Label>
-                                                <Label Text="{Binding Description}" Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="12" TextColor="White"></Label>
-                                                <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Aspect="AspectFit"></Image>
-                                                <Image Source="lesson_tick_true.png" Grid.RowSpan="3" Grid.Column="2" x:Name="img_lesson_tick_true" Aspect="AspectFit" IsVisible="false"></Image>
-                                                <Image Source="lesson_tick_false.png" Grid.RowSpan="3" Grid.Column="2" x:Name="img_lesson_tick_false" Aspect="AspectFit" IsVisible="true"></Image>
-                                            </Grid>
+                                        <Grid RowDefinitions=".2*,.6*,.2*" ColumnDefinitions=".2*, .6*, .2*">
+                                            <Label Text="{Binding Id, StringFormat='Lesson #{0}'}" TextColor="White" Grid.Row="0" FontSize="12" HorizontalOptions="Center" Grid.Column="0" ></Label>
+                                            <Label Text="Description" Margin="10,0,0,0" TextColor="White" FontSize="12" Grid.Row="0" Grid.Column="1"></Label>
+                                            <Label Text="{Binding Description}" Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" FontSize="12" TextColor="White"></Label>
+                                            <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Aspect="AspectFit"></Image>
+                                            <Image Source="lesson_tick_true.png" Grid.RowSpan="3" Grid.Column="2" x:Name="img_lesson_tick_true" Aspect="AspectFit" IsVisible="false"></Image>
+                                            <Image Source="lesson_tick_false.png" Grid.RowSpan="3" Grid.Column="2" x:Name="img_lesson_tick_false" Aspect="AspectFit" IsVisible="true"></Image>
+                                        </Grid>
                                     </Frame>
                                 </VerticalStackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                </ScrollView>
             </Border>
             <!--endregion Lessons-->
         </Grid>

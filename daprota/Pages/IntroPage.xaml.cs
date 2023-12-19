@@ -1,6 +1,6 @@
+using daprota.Models;
 using daprota.Services;
 using daprota.ViewModels;
-using System.Collections.ObjectModel;
 
 namespace daprota.Pages;
 
@@ -27,8 +27,17 @@ public partial class IntroPage : ContentPage
         await _vm.GoBack();
     }
 
-    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
+        _vm.IsAnswerSelected = true;
+        var answer = (sender as CollectionView).SelectedItem as M_ChatAnswer;
+        if (answer.IsPos)
+        {
+            _vm.explainationNeeded = false;
+        }
+        else
+        {
+            _vm.explainationNeeded = true;
+        }
     }
-
 }
