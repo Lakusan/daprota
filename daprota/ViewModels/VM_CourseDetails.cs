@@ -48,7 +48,26 @@ namespace daprota.ViewModels
             GenerateLessonsList();
             SetLessonsDone();
         }
-
+        public void GetCourseProgressionPercentage()
+        {
+            CurrentCourseProgressText = _data.GetCourseProgressionPercentage();
+        }
+        public void GetCourseProgressionFloat()
+        {
+            CurrentCourseProgressBar = _data.GetCourseProgressionFloat();
+        }
+        public void SetCurrentCourseLessonProgress()
+        {
+            User = _data.GetUser();
+            if (User.ActiveLessionId >= 1)
+            {
+                CurrentCourseLessonProgress = User.ActiveLessionId;
+            }
+            else
+            {
+                CurrentCourseLessonProgress = 0;
+            }
+        }
         public void SetLessonsDone()
         {
             User = _data.GetUser();

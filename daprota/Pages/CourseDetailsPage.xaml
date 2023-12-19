@@ -68,13 +68,13 @@
                     FontSize="10" 
                     TextColor="White" 
                     VerticalOptions="Start" 
-                    Margin="0,8,0,0" Text="Progress">
+                    Margin="10,15,0,0" Text="Progress">
                 </Label>
                 <Border 
                     Grid.Row="1" 
                     Grid.Column="0" 
                     StrokeShape="RoundRectangle 8,8,8,8"
-                    WidthRequest="180"
+                    WidthRequest="150"
                     HeightRequest="20">
                     <ProgressBar 
                         Grid.Row="2"

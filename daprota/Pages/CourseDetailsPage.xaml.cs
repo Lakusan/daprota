@@ -16,7 +16,10 @@ public partial class CourseDetailsPage : ContentPage
         BindingContext = vm;
 		_vm = vm;
         _data = data;
-	}
+        _vm.GetCourseProgressionFloat();
+        _vm.GetCourseProgressionPercentage();
+        _vm.SetCurrentCourseLessonProgress();
+    }
 
     protected override async void OnAppearing()
     {
