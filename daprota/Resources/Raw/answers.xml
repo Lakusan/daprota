@@ -1,66 +1,322 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ArrayOfM_Answer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<M_Answer>
 		<Id>0</Id>
-		<AnswerId>0</AnswerId>
+		<CourseId>0</CourseId>
 		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 1</AnswerText>
+		<AnswerText>DPIAs aim to collect sensitive data without ensuring security measures.</AnswerText>
 		<IsCorrect>true</IsCorrect>
 		<ExplainationText>Answer is true</ExplainationText>
 	</M_Answer>
 	<M_Answer>
-		<Id>0</Id>
-		<AnswerId>1</AnswerId>
+		<Id>1</Id>
+		<CourseId>0</CourseId>
 		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 2</AnswerText>
+		<AnswerText>DPIAs are designed to promote data sharing without restrictions.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>2</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>1</QuestionId>
+		<AnswerText>The GDPR advocates for designing systems without considering data protection measures.</AnswerText>
 		<IsCorrect>true</IsCorrect>
 		<ExplainationText>Answer is true</ExplainationText>
 	</M_Answer>
 	<M_Answer>
-		<Id>0</Id>
-		<AnswerId>2</AnswerId>
-		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 3</AnswerText>
+		<Id>3</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>1</QuestionId>
+		<AnswerText>The GDPR suggests random default settings for data processing.</AnswerText>
 		<IsCorrect>false</IsCorrect>
 		<ExplainationText>Answer is false</ExplainationText>
 	</M_Answer>
 	<M_Answer>
-		<Id>0</Id>
-		<AnswerId>3</AnswerId>
-		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 4</AnswerText>
+		<Id>4</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>2</QuestionId>
+		<AnswerText>Organizations appoint a DPO for administrative tasks.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>5</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>2</QuestionId>
+		<AnswerText>Appointing a DPO is optional for all organizations.</AnswerText>
 		<IsCorrect>false</IsCorrect>
 		<ExplainationText>Answer is false</ExplainationText>
 	</M_Answer>
 	<M_Answer>
-		<Id>0</Id>
-		<AnswerId>4</AnswerId>
-		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 5</AnswerText>
+		<Id>6</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>3</QuestionId>
+		<AnswerText>The GDPR encourages unrestricted data transfers without considering security measures.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>7</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>3</QuestionId>
+		<AnswerText>The GDPR has no regulations regarding cross-border data transfers.</AnswerText>
 		<IsCorrect>false</IsCorrect>
 		<ExplainationText>Answer is false</ExplainationText>
 	</M_Answer>
 	<M_Answer>
-		<Id>0</Id>
-		<AnswerId>4</AnswerId>
-		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 6</AnswerText>
+		<Id>8</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>4</QuestionId>
+		<AnswerText>Data subjects have no additional rights besides the core ones mentioned.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>9</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>4</QuestionId>
+		<AnswerText>The GDPR doesn't specify any rights beyond access, rectification, erasure, and data portability.</AnswerText>
 		<IsCorrect>false</IsCorrect>
 		<ExplainationText>Answer is false</ExplainationText>
 	</M_Answer>
 	<M_Answer>
-		<Id>0</Id>
-		<AnswerId>5</AnswerId>
-		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 7</AnswerText>
+		<Id>10</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>5</QuestionId>
+		<AnswerText>Organizations have one week to report data breaches to supervisory authorities.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>11</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>5</QuestionId>
+		<AnswerText>Reporting data breaches to supervisory authorities is not mandatory according to the GDPR.</AnswerText>
 		<IsCorrect>false</IsCorrect>
 		<ExplainationText>Answer is false</ExplainationText>
 	</M_Answer>
 	<M_Answer>
-		<Id>0</Id>
-		<AnswerId>6</AnswerId>
-		<QuestionId>0</QuestionId>
-		<AnswerText>Question 0 Answer 8</AnswerText>
+		<Id>12</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>6</QuestionId>
+		<AnswerText>Organizations are not required to maintain records of data processing activities under the GDPR.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>13</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>6</QuestionId>
+		<AnswerText>The GDPR only requires organizations to maintain records without specifying the need for policies and procedures.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>14</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>7</QuestionId>
+		<AnswerText>The GDPR allows unrestricted processing of sensitive data categories.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>15</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>7</QuestionId>
+		<AnswerText>The GDPR doesn't differentiate between sensitive and non-sensitive data categories for processing.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>16</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>8</QuestionId>
+		<AnswerText>Tax regulations in the EU.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>17</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>8</QuestionId>
+		<AnswerText>Cybersecurity laws in the EU.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>18</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>9</QuestionId>
+		<AnswerText>January 2019</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>19</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>9</QuestionId>
+		<AnswerText>December 2017</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>20</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>10</QuestionId>
+		<AnswerText>Rights to financial compensation.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>21</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>10</QuestionId>
+		<AnswerText>Rights to access government records.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>22</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>11</QuestionId>
+		<AnswerText>No obligations for data protection.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>23</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>11</QuestionId>
+		<AnswerText>Only data storage obligations.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>24</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>12</QuestionId>
+		<AnswerText>They are exempt from GDPR regulations.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>25</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>12</QuestionId>
+		<AnswerText>They can negotiate compliance terms.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>26</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>13</QuestionId>
+		<AnswerText>Generating higher profits.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>27</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>13</QuestionId>
+		<AnswerText>Minimizing operational costs.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>28</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>14</QuestionId>
+		<AnswerText>No requirements for external entities.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>29</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>14</QuestionId>
+		<AnswerText>Adherence to local data laws only.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>30</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>15</QuestionId>
+		<AnswerText>To promote unrestricted data sharing.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>31</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>15</QuestionId>
+		<AnswerText>To minimize individual control over personal data.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>32</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>16</QuestionId>
+		<AnswerText>Creating market competition.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>33</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>16</QuestionId>
+		<AnswerText>Reducing consumer rights.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>34</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>17</QuestionId>
+		<AnswerText>It has no global impact.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>35</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>17</QuestionId>
+		<AnswerText>It applies only to EU-based entities.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>36</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>18</QuestionId>
+		<AnswerText>Fostering data monetization.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>37</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>18</QuestionId>
+		<AnswerText>Simplifying data access.</AnswerText>
+		<IsCorrect>false</IsCorrect>
+		<ExplainationText>Answer is false</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>38</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>19</QuestionId>
+		<AnswerText>To increase data sharing.</AnswerText>
+		<IsCorrect>true</IsCorrect>
+		<ExplainationText>Answer is true</ExplainationText>
+	</M_Answer>
+	<M_Answer>
+		<Id>39</Id>
+		<CourseId>0</CourseId>
+		<QuestionId>19</QuestionId>
+		<AnswerText>To limit data protection measures.</AnswerText>
 		<IsCorrect>false</IsCorrect>
 		<ExplainationText>Answer is false</ExplainationText>
 	</M_Answer>

@@ -112,17 +112,17 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                                 <VerticalStackLayout Grid.Column="0" WidthRequest="270" HeightRequest="78" Margin="17,10,0,0">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup Name="CommonStates">
-                                        <VisualState Name="Normal"></VisualState>
-                                        <VisualState Name="Selected">
-                                            <VisualState.Setters>
-                                                <Setter Property="BackgroundColor" Value="SlateBlue"></Setter>
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                                <Label Padding="1" Text="{Binding Text}" LineBreakMode="WordWrap" TextColor="White"></Label>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal"></VisualState>
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="SlateBlue"></Setter>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Label Padding="1" HorizontalOptions="CenterAndExpand" Text="{Binding Text}" LineBreakMode="WordWrap" TextColor="White"></Label>
                             </VerticalStackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

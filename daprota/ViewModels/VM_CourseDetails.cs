@@ -27,7 +27,10 @@ namespace daprota.ViewModels
 
         [ObservableProperty]
         public M_User user;
-        
+
+        [ObservableProperty]
+        M_Course lastCourse;
+     
         public string DebugText { get; set; }
 
         private Data _data;
@@ -36,14 +39,15 @@ namespace daprota.ViewModels
         {
             _data = d;
             CourseDetails = new();
+            LastCourse = Data.LastCourse;
         }
 
         public async Task LoadData()
         {
             _data.GetUser();
             User = Data.UserData;
-            await _data.GetCurrentCourse();
-            CurrentCourse = Data.CurrentCourse;
+                await _data.GetCurrentCourse();
+                CurrentCourse = Data.CurrentCourse;
             CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
             GenerateLessonsList();
             SetLessonsDone();

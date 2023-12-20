@@ -3,16 +3,16 @@
 	<M_Course>
 		<Id>0</Id>
 		<Title>Fundamentals DSGVO</Title>
-		<Description_long>Long M_Cours Description</Description_long>
-		<Description_short>Short M_Cours Description</Description_short>
+		<Description_long>In this course you'll learn essential aspects of GDPR, focusing on Data Protection Impact Assessments (DPIAs), designing systems with data protection in mind, appointing a Data Protection Officer (DPO), handling cross-border data transfers, understanding data subject rights, breach notifications, accountability measures, and managing sensitive data. It's crucial for organizations to grasp these advanced concepts to ensure compliance and safeguard individuals' privacy rights.</Description_long>
+		<Description_short>The course navigates GDPR essentials for compliance and privacy protection.</Description_short>
 		<Image>thinking.png</Image>
 		<Category>Beginner</Category>
 	</M_Course>
 	<M_Course>
 		<Id>1</Id>
-		<Title>Second Course</Title>
-		<Description_long>Long M_Cours Description</Description_long>
-		<Description_short>Short M_Cours Description</Description_short>
+		<Title>Dummy Course</Title>
+		<Description_long>This is a Dummy Course without any content. You can add more content in Resources/Raw/Courses</Description_long>
+		<Description_short>This is a Dummy Course without any content.</Description_short>
 		<Image>dotnet_bot.png</Image>
 		<Category>Advanced</Category>
 	</M_Course>
@@ -22,7 +22,7 @@
 		<Description_long>Long M_Cours Description</Description_long>
 		<Description_short>Short M_Cours Description</Description_short>
 		<Image>dotnet_bot.png</Image>
-		<Category>Advanced</Category>
+		<Category>Intermediate</Category>
 	</M_Course>
 	<M_Course>
 		<Id>3</Id>
@@ -38,6 +38,6 @@
 		<Description_long>Long M_Cours Description</Description_long>
 		<Description_short>Short M_Cours Description</Description_short>
 		<Image>dotnet_bot.png</Image>
-		<Category>Quiz</Category>
+		<Category>Master</Category>
 	</M_Course>
 </ArrayOfM_Course>

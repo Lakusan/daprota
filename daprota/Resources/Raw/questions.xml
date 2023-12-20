@@ -2,32 +2,122 @@
 <ArrayOfM_Question xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<M_Question>
 		<Id>0</Id>
-		<LessonId>0</LessonId>
-		<QuestionText>LessonId:0 Id:0 QuestionAnswerId:0</QuestionText>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What is the purpose of Data Protection Impact Assessments (DPIAs) according to the GDPR?</QuestionText>
 	</M_Question>
 	<M_Question>
 		<Id>1</Id>
-		<LessonId>0</LessonId>
-		<QuestionText>LessonId:0 Id:1 QuestionAnswerId:0</QuestionText>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What principle does the GDPR emphasize concerning the design of systems and services?</QuestionText>
 	</M_Question>
 	<M_Question>
 		<Id>2</Id>
-		<LessonId>0</LessonId>
-		<QuestionText>LessonId:0 Id:2 QuestionAnswerId:0</QuestionText>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>Under what circumstances are organizations required to appoint a Data Protection Officer (DPO) according to the GDPR?</QuestionText>
 	</M_Question>
 	<M_Question>
 		<Id>3</Id>
-		<LessonId>0</LessonId>
-		<QuestionText>LessonId:0 Id:3 QuestionAnswerId:0</QuestionText>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What does the GDPR stipulate regarding cross-border data transfers from the EU to countries lacking adequate data protection standards?</QuestionText>
 	</M_Question>
 	<M_Question>
 		<Id>4</Id>
-		<LessonId>0</LessonId>
-		<QuestionText>LessonId:0 Id:4 QuestionAnswerId:0</QuestionText>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>Besides access, rectification, erasure, and data portability, what additional rights are included for data subjects in the GDPR?</QuestionText>
 	</M_Question>
 	<M_Question>
 		<Id>5</Id>
-		<LessonId>0</LessonId>
-		<QuestionText>LessonId:0 Id:5 QuestionAnswerId:0</QuestionText>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What is the timeframe specified by the GDPR for organizations to report data breaches to supervisory authorities?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>6</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What obligations do organizations have regarding accountability and documentation under the GDPR?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>7</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What does the GDPR entail regarding the processing of sensitive data categories?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>8</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What does the General Data Protection Regulation (GDPR) aim to regulate?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>9</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>When did the GDPR become enforceable?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>10</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What rights does the GDPR provide to individuals regarding their personal data?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>11</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What obligations does the GDPR impose on organizations handling personal data?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>12</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>How does the GDPR impact businesses that collect or process personal data?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>13</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What significance does GDPR compliance hold for organizations handling personal data?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>14</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What does the GDPR require from organizations located outside the EU that handle EU residents' personal data?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>15</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What is the overarching goal of the GDPR concerning personal data handling?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>16</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What role does GDPR compliance play in fostering relationships between individuals and organizations?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>17</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>How does the GDPR impact entities located outside the EU?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>18</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What aspect of personal data handling does the GDPR primarily focus on?</QuestionText>
+	</M_Question>
+	<M_Question>
+		<Id>19</Id>
+		<CourseId>0</CourseId>
+		<LessonId>3</LessonId>
+		<QuestionText>What is the main reason for individuals and businesses to understand the GDPR?</QuestionText>
 	</M_Question>
 </ArrayOfM_Question>

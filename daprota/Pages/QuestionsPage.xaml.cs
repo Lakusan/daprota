@@ -1,67 +1,37 @@
 using daprota.Models;
+using daprota.ViewModels;
 
 namespace daprota.Pages;
 
 public partial class QuestionsPage : ContentPage
 {
-    public QuestionsPage()
+    public VM_Questions _vm;
+    public QuestionsPage(VM_Questions vm)
     {
         InitializeComponent();
+        _vm = vm;
+        BindingContext = _vm;
     }
 
-    private void btn_generateQuestion_Clicked(object sender, EventArgs e)
-    {
-        //M_Question question = new M_Question()
-        //{
-        //    qText = "Some Explainaton to the question"
-        //};
-        //question.qAnswers = new List<M_Answer>
-        //{
-        //    new M_Answer() {Text="Answertext1", isCorrect=true },
-        //    new M_Answer() {Text="Answertext2", isCorrect=false },
-        //    new M_Answer() {Text="Answertext3", isCorrect=false },
-        //    new M_Answer() {Text="Answertext4", isCorrect=false }
-        //};
-        
-        //question.qAnswers = question.qAnswers.OrderBy  (a => Guid.NewGuid()).ToList();
-        //VSL_Question.BindingContext = question;
-    }
-
-    private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        var answer = (sender as CollectionView).SelectedItem as M_Answer;
-        if (answer.IsCorrect)
-        {
-            await DisplayAlert("Correct Answer", "Good Job - Explaination", "Proceed");
-        }
-        else
-        {
-            await DisplayAlert("Wrong Answer", "Explaination", "Try again");
-        }
-    }
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        //M_User _userData = new M_User();
+    }
+    private async void Back_Tapped(object sender, TappedEventArgs e)
+    {
+        await _vm.GoBack();
+    }
+    public void Answers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        _vm.IsAnswerSelected = true;
+        var answer = (sender as CollectionView).SelectedItem as M_Answer;
+        if (!answer.IsCorrect)
+        {
+            _vm.lastAnswer = false;
+        } else
+        {
+            _vm.lastAnswer = true;
+        }
 
-        ////var userPrefs = Preferences.Default.Get<string>("Settings", null);
-        //if (App._userData != null)
-        //{
-        //    _userData = App._userData;
-        //} else
-        //{
-        //    L_Test.Text = "ERROR";
-        //}
-        //L_Test.Text = _userData.Username;
-
-        //if (userPrefs == null)
-        //{
-        //    _userData = JsonSerializer.Deserialize<M_User>(userPrefs);
-        //    L_Test.Text = _userData.UserId.ToString();
-        //}
-        //else
-        //{
-        //    L_Test.Text = _userData.Username;
-        //}
     }
 }

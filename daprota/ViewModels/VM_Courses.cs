@@ -140,6 +140,19 @@ namespace daprota.ViewModels
                 });
             }
         }
+        [RelayCommand]
+        public async Task OtherCourseTapped(int Id)
+        {
+            // find tapped course by CourseId
+            M_Course courseTapped = Courses.First(Courses => Courses.Id == Id);
+            if (courseTapped != null)
+            {
+                await Shell.Current.GoToAsync($"{nameof(CourseDetailsPage)}");
+                Data.LastCourse = courseTapped;
+                
+            }
+        }
+
         public List<M_Course> GetFilteredItems(string title)
         {
             return Courses.Where(course => course.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();

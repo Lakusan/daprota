@@ -18,7 +18,6 @@ namespace daprota.ViewModels
 
         [ObservableProperty]
         public M_CurrentCourse currentCourse;
-        private Data _data;
 
         [ObservableProperty]
         public List<M_UserResponse> userResponses;
@@ -41,16 +40,20 @@ namespace daprota.ViewModels
         [ObservableProperty]
         public bool isAnswerSelected;
         
-        public static int _msgId;
-        public bool explainationNeeded = false;
         [ObservableProperty]
         public bool lessonDone = false;
-        public bool isLesson2 = false;
+
         public M_User CurrentUser { get; set; }
+        public bool lastAnswer;
+        public bool isLesson2 = false;
+        public bool explainationNeeded = false;
+
+        public static int _msgId;
+
         private int correctAnswers;
         private int inCorrectAnswers;
-        public bool lastAnswer;
         private int incorrectAnswerCount;
+        private Data _data;
 
 
         public VM_Intro(Data d)
@@ -300,16 +303,5 @@ namespace daprota.ViewModels
                 _data.SetUserData(Data.UserData);
             }
         }
-
-
-        // Lesson #2 
-        // is lesson 2 -> quiz practise !
-        // if it's 2 then shuffle answers !
-        // if it's 2 then record correct answers 
-        // if it's 2 then change bot reply with pts 
-        // only inc course if success is >  50%
-
-        // rework user reply -> Grid with vertical stack layout -> Flex
-        // change user responses in #1 to be shorter
     }
 }

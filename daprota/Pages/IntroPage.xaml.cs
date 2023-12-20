@@ -34,6 +34,10 @@ public partial class IntroPage : ContentPage
         if (answer.IsPos)
         {
             _vm.explainationNeeded = false;
+            if (_vm.isLesson2)
+            {
+                _vm.lastAnswer = true;
+            }
         }
         else
         {
