@@ -82,17 +82,19 @@
             <ScrollView>
                 <VerticalStackLayout>
                     <Label 
-                        Grid.Row="1" Text="On this Page you can change your Username.&#10;&#10;Please use the Entry Filed below to change your Username.&#10;&#10;The App will use this name to adress you during the lerning experience.&#10;&#10;If you want to change your username again, just long tap on your username anywhere in this Application.&#10;&#10;Otherwise you could access this Settings Menu via the Infobar and the Settings tap."
+                        Grid.Row="1" Text="On this Page you can change your Username.&#10;&#10;Please use the Entry Filed below to change your Username.&#10;&#10;The App will use this name to adress you during the lerning experience.&#10;&#10;Otherwise you could access this Settings Menu via the Infobar and the Settings tap."
                         LineBreakMode="WordWrap"
                         HorizontalOptions="StartAndExpand"
                         TextColor="{AppThemeBinding Light=#333333, Dark=#333333}">
                     </Label>
-                    <Image 
-                        Source="dotnet_bot.png"
-                        WidthRequest="100"
-                        HeightRequest="50"
-                        Aspect="AspectFit">
-                    </Image>
+                    <Border Margin="10" WidthRequest="55" HeightRequest="55" Background="SlateBlue">
+                        <Image 
+                            Source="settings.png"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Aspect="AspectFit">
+                        </Image>
+                    </Border>
                 </VerticalStackLayout>
             </ScrollView>
         </Border>

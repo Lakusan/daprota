@@ -9,4 +9,7 @@
 	<M_Conversation>
 		<ConversationId>2</ConversationId>
 	</M_Conversation>
+	<M_Conversation>
+		<ConversationId>3</ConversationId>
+	</M_Conversation>
 </ArrayOfM_Conversation>

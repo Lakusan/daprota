@@ -4,6 +4,7 @@ using daprota.Models;
 using daprota.Pages;
 using daprota.Services;
 using System.Collections.ObjectModel;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace daprota.ViewModels
 {
@@ -44,8 +45,12 @@ namespace daprota.ViewModels
         public bool explainationNeeded = false;
         [ObservableProperty]
         public bool lessonDone = false;
-
+        public bool isLesson2 = false;
         public M_User CurrentUser { get; set; }
+        private int correctAnswers;
+        private int inCorrectAnswers;
+        public bool lastAnswer;
+        private int incorrectAnswerCount;
 
 
         public VM_Intro(Data d)
@@ -58,10 +63,13 @@ namespace daprota.ViewModels
             Chat = new ObservableCollection<M_ChatMsg>();
             VM_Intro._msgId = 0;
             IsAnswerSelected = false;
+            lastAnswer = true;
+            incorrectAnswerCount = 0;
         }
 
         public async Task LoadData()
         {
+            IsLesson2(Data.SelectedLessonId);
             await _data.GetCurrentCourse();
             CurrentCourse = Data.CurrentCourse;
             CourseDetails = await _data.GenerateAsyncCourseDetails(CurrentCourse);
@@ -71,6 +79,13 @@ namespace daprota.ViewModels
             NextBotMsg();
             await Task.Delay(500);
             GenerateResponses();
+        }
+
+        private void IsLesson2(int lessonId)
+        {
+            if (lessonId == 2) {
+                isLesson2 = true;
+            };
         }
 
         public void AddBotExplaination()
@@ -128,24 +143,63 @@ namespace daprota.ViewModels
 
         public void GenerateResponses()
         {
+            Random rnd = new Random();
+            int firstAnswer = rnd.Next(1, 3);
+            List<M_ChatAnswer> responses = new();
+
+
             Answer.Clear();
-            Answer.Add(new M_ChatAnswer()
+            switch (firstAnswer)
             {
-                Text = Conversation.UserResponseList[VM_Intro._msgId].NegativeResponse,
-                IsPos = false,
-            });
-            Answer.Add(new M_ChatAnswer()
-            {
-                Text = Conversation.UserResponseList[VM_Intro._msgId].PositiveResponse,
-                IsPos = true
-            });
+                case 1:
+                    Answer.Add(new M_ChatAnswer()
+                    {
+                        Text = Conversation.UserResponseList[VM_Intro._msgId].NegativeResponse,
+                        IsPos = false,
+                    });
+                    Answer.Add(new M_ChatAnswer()
+                    {
+                        Text = Conversation.UserResponseList[VM_Intro._msgId].PositiveResponse,
+                        IsPos = true
+                    });
+                    break;
+                case 2:
+                    Answer.Add(new M_ChatAnswer()
+                    {
+                        Text = Conversation.UserResponseList[VM_Intro._msgId].PositiveResponse,
+                        IsPos = true,
+                    });
+                    Answer.Add(new M_ChatAnswer()
+                    {
+                        Text = Conversation.UserResponseList[VM_Intro._msgId].NegativeResponse,
+                        IsPos = false
+                    });
+                    break;
+                default:
+                    Answer.Add(new M_ChatAnswer()
+                    {
+                        Text = Conversation.UserResponseList[VM_Intro._msgId].NegativeResponse,
+                        IsPos = false,
+                    });
+                    Answer.Add(new M_ChatAnswer()
+                    {
+                        Text = Conversation.UserResponseList[VM_Intro._msgId].PositiveResponse,
+                        IsPos = true
+                    });
+                    break;
+            }
     }
 
     [RelayCommand]
         public async Task AddChatMessage()
         {
             if (IsAnswerSelected)
-            {
+            {   
+                if (!lastAnswer && isLesson2)  
+                {
+                    incorrectAnswerCount++;
+                    lastAnswer = true;
+                }
                 Answer.Clear();
                 if (explainationNeeded)
                 {
@@ -198,28 +252,64 @@ namespace daprota.ViewModels
 
         partial void OnLessonDoneChanged(bool oldValue, bool newValue)
         {
-            Chat.Add(new M_ChatMsg()
+            if (isLesson2)
             {
-                Name = "Bot",
-                IsPos = false,
-                Text = "This is the end of this lesson. I have unlocked the next lesson for you. You can now exit this lesson using the arrow above and continue with the next lesson. I'm looking forward to next time!",
-                Image = "user.png"
-            });
-            // Save User Progress
-            if (CurrentCourse.CurrentLessonId < CurrentCourse.CurrentLessonId)
-            {
-                int newLesson = CurrentCourse.CurrentLessonId + 1;
-                CurrentUser.ActiveLessionId = newLesson;
-            }               
-                
-            Chat.Add(new M_ChatMsg()
-            {
-                Name = "Bot",
-                IsPos = false,
-                Text = CurrentUser.ActiveLessionId.ToString(),
-                Image = "user.png"
-            });
-            _data.SetUserData(CurrentUser);
+                if (incorrectAnswerCount == 0)
+                {
+                    Chat.Add(new M_ChatMsg()
+                    {
+                        Name = "Bot",
+                        IsPos = false,
+                        Text = "Congratulations, you passed. You are ready for the Quiz!",
+                        Image = "user.png"
+                    });
+                    // Save User Progress
+                    if (Data.UserData.ActiveLessionId <= Data.SelectedLessonId)
+                    {
+                        int newLesson = Data.SelectedLessonId + 1;
+                        Data.UserData.ActiveLessionId = newLesson;
+                    }
+                    _data.SetUserData(Data.UserData);
+                } else
+                {
+                    int totalQuestions = 4;
+                    int correctAnswers = totalQuestions - incorrectAnswerCount;
+                    string msg = "Soory, you didn't pass this Lesson." + "You have answered " + correctAnswers + " out of " + totalQuestions + " Questions correctly." + "  Please try again to pass this Lesson.";
+                    Chat.Add(new M_ChatMsg()
+                    {
+                        Name = "Bot",
+                        IsPos = false,
+                        Text = msg,
+                        Image = "user.png"
+                    });
+                }
+            } else {
+                Chat.Add(new M_ChatMsg()
+                {
+                    Name = "Bot",
+                    IsPos = false,
+                    Text = "This is the end of this lesson. I have unlocked the next lesson for you. You can now exit this lesson using the arrow above and continue with the next lesson. I'm looking forward to next time!",
+                    Image = "bot.png"
+                });
+                // Save User Progress
+                if (Data.UserData.ActiveLessionId <= Data.SelectedLessonId)
+                {
+                    int newLesson = Data.SelectedLessonId + 1;
+                    Data.UserData.ActiveLessionId = newLesson;
+                }
+                _data.SetUserData(Data.UserData);
+            }
         }
+
+
+        // Lesson #2 
+        // is lesson 2 -> quiz practise !
+        // if it's 2 then shuffle answers !
+        // if it's 2 then record correct answers 
+        // if it's 2 then change bot reply with pts 
+        // only inc course if success is >  50%
+
+        // rework user reply -> Grid with vertical stack layout -> Flex
+        // change user responses in #1 to be shorter
     }
 }

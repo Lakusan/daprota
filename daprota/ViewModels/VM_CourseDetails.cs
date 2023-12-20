@@ -108,9 +108,13 @@ namespace daprota.ViewModels
                     break;
                 case 2:
                     // Conversation Q&A
+                    Data.SelectedLessonId = lesson.Id;
+                    await Shell.Current.GoToAsync($"{nameof(IntroPage)}");
                     break;
                 case 3:
                     //Quiz
+                    Data.SelectedLessonId = lesson.Id;
+                    await Shell.Current.GoToAsync($"{nameof(QuestionsPage)}");
                     break;
                 default:
                     break;

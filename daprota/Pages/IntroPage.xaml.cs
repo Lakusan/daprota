@@ -38,6 +38,10 @@ public partial class IntroPage : ContentPage
         else
         {
             _vm.explainationNeeded = true;
+            if(_vm.isLesson2)
+            {
+                _vm.lastAnswer = false;
+            }
         }
     }
 }
