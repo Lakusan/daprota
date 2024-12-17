@@ -6,15 +6,15 @@
   </a>
 
 <h3 align="center">
-<span style="color: #84cc16;">Da</span>
-    <span style="color: #f59e0b;">Pro</span>
-    <span style="color: #8b5cf6;">Ta</span></h3>
+<span style="color: Greenyellow;">Da</span>
+    <span style="color: Darkorange;">Pro</span>
+    <span style="color: Purple;">Ta</span></h3>
 
   <p align="center">
     <br />
-    <span style="color: #84cc16;">Data</span>
-    <span style="color: #f59e0b;">Protection</span>
-    <span style="color: #8b5cf6;">Training App</span>
+    <span style="color: Greenyellow;">Data</span>
+    <span style="color: Darkorange;">Protection</span>
+    <span style="color: Purple;">Training App</span>
 
 </div>
 
