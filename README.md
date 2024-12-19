@@ -24,7 +24,7 @@
 <div>
     </br>
     <p>
-    This application was developed in the Module Mobile App Development as part of my Master Degree in Applied Computer Science at SRH University   Heidelberg, in December 2023.
+    This application was developed during the  Module Mobile App Development as part of my Master Degree in Applied Computer Science at SRH University Heidelberg, in December 2023.
     </p>
     <p>
         The Data Protection Training app (DaProTa) is an Android application designed to educate users on the fundamental aspects of data privacy in Germany. It focuses on the General Data Protection Regulation (GDPR), a comprehensive EU regulation aimed at protecting personal data and standardizing data protection laws across member states. The goal is to transform learning into an immersive journey, breaking down complex concepts into manageable parts, and leaving users not only informed but also enthusiastic about applying DSGVO principles in their daily lives.
